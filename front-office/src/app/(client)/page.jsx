@@ -71,7 +71,7 @@ const Accueil = () => {
   });
   const handleSave = async () => {
     try {
-      const response = await fetch(`${url}/api/ReservationsTable/Create_Reservation", {
+      const response = await fetch(`${url}/api/ReservationsTable/Create_Reservation`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData), // ✅ JSON.stringify
@@ -106,7 +106,7 @@ const Accueil = () => {
       {/* Background div */}
       <div
         className="absolute inset-0 -z-50 bg-cover bg-center"
-        style={{ backgroundImage: `url(${Header_Background.src})` }}
+        style={{ backgroundImage: `url/(${Header_Background.src})` }}
       ></div>
       <div
         className="absolute inset-0 -z-40"
