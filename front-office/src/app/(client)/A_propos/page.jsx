@@ -128,7 +128,7 @@ export default function A_propos() {
     });
   const handleSave = async () => {
     try {
-      const response = await fetch(`${url}/api/ReservationsTable/Create_Reservation", {
+      const response = await fetch(`${url}/api/ReservationsTable/Create_Reservation`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData), // ✅ JSON.stringify
@@ -162,7 +162,7 @@ export default function A_propos() {
       <Header backgroundImage={Header_Background.src}
 
         subtitle="Notre Histoire"
-        title={`[À propos] du Restaurant Enis `}
+        title={`[A propos] du Restaurant Enis `}
 
         greatVibes={greatVibes}
         accentColor={"white"}

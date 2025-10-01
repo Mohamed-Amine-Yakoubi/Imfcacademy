@@ -94,7 +94,7 @@ export default function Contact() {
     formPayload.append("Sujet_Contact", formData.Sujet_Contact);
     formPayload.append("Message_Contact", formData.Message_Contact);
     try {
-      const res = await fetch(`${url}/api/Contact/Create_Contact", {
+      const res = await fetch(`${url}/api/Contact/Create_Contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -128,7 +128,7 @@ export default function Contact() {
       <Header
         backgroundImage={Header_Background.src}
         subtitle="Saveurs Uniques"
-        title={`À votre [écoute]\n pour mieux vous [servir]`}
+        title={`A votre [écoute]\n pour mieux vous [servir]`}
         greatVibes={greatVibes}
         accentColor={"white"}
         highlightColor={"#FFBB00"}
