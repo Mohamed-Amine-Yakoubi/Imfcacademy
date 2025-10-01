@@ -133,7 +133,7 @@ export default function Evenement_Detail() {
 
 
 
-      const response = await fetch(`${url}/api/ReservationsEvent/Create_Reservation", {
+      const response = await fetch(`${url}/api/ReservationsEvent/Create_Reservation`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

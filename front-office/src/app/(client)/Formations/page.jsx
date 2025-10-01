@@ -101,7 +101,7 @@ export default function Formations() {
   useEffect(() => {
     const fetchFormations = async () => {
       try {
-        const response = await axios.get(`${url}/api/Formations/Get_AllFormations");
+        const response = await axios.get(`${url}/api/Formations/Get_AllFormations`);
         setFormations(response.data);
         console.log("setFormations", response.data)
 
@@ -131,7 +131,7 @@ export default function Formations() {
 
 
 
-      const response = await fetch(`${url}/api/Inscriptions/Create_Inscription", {
+      const response = await fetch(`${url}/api/Inscriptions/Create_Inscription`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
