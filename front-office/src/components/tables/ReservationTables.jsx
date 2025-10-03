@@ -35,7 +35,7 @@ export default function ReservationTables({ searchTerm = "", filterType = "" }) 
   useEffect(() => {
     const fetchReservations = async () => {
       try {
-        const response = await axios.get(`${url}/api/ReservationsTable/Get_AllReservation`);
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/ReservationsTable/Get_AllReservation`);
         setReservations(response.data);
       } catch (error) {
         console.error("Erreur lors du chargement des Reservations", error);
@@ -75,7 +75,7 @@ export default function ReservationTables({ searchTerm = "", filterType = "" }) 
 
   const handleSave = async () => {
     try {
-      await axios.put(`${url}/api/Reservations/Update_spec_Reservation/${selectedReservation.id_Reservation}`, formData);
+      await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/Reservations/Update_spec_Reservation/${selectedReservation.id_Reservation}`, formData);
       setReservations(prev =>
         prev.map(f =>
           f.id_Reservation === selectedReservation.id_Reservation
@@ -156,7 +156,7 @@ export default function ReservationTables({ searchTerm = "", filterType = "" }) 
                     <TableCell className="px-4 py-3">
                       <EditButton
                         id={Reservation.id_Reservation}
-                        deleteUrl={`${url}/api/ReservationsTable/Delete_spec_Reservation/${Reservation.id_Reservation}`}
+                        deleteUrl={`${process.env.NEXT_PUBLIC_API_URL}/api/ReservationsTable/Delete_spec_Reservation/${Reservation.id_Reservation}`}
                         onDelete={() => setReservations(prev => prev.filter(f => f.id_Reservation !== Reservation.id_Reservation))}
 
                         showDeleteButton={true}
@@ -168,7 +168,7 @@ export default function ReservationTables({ searchTerm = "", filterType = "" }) 
                         showApproveButton={true}
                         showCancelButton={true}
                         etatField="Etat_Reservation"
-                        urlUpdate={`${url}/api/ReservationsTable/Update_spec_Reservation/${Reservation.id_Reservation}`}
+                        urlUpdate={`${process.env.NEXT_PUBLIC_API_URL}/api/ReservationsTable/Update_spec_Reservation/${Reservation.id_Reservation}`}
                         onUpdate={handleUpdateEtat}
 
                         openModal={() => openModal(Reservation)}

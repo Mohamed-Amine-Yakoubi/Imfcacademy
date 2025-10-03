@@ -3,14 +3,10 @@
 import React, { useMemo, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import Background_header from "../../../public/images/Réservation_background.webp";
-
+ 
 import getScrollAnimation from "../../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "../../layout/ScrollAnimationWrapper";
-import Header_Background from "../../../public/images/Background_header_4.webp";
-import Assiets_header from "../../../public/images/Acceuil/Assiets_header.webp";
-import Background_Assiets_header from "../../../public/images/Acceuil/Background_Assiets_header.webp";
-import { Navbar } from "../../components/common/Navbar";
+ import { Navbar } from "../../components/common/Navbar";
 
 import { greatVibes, poppins } from '../../Styles/fonts/fonts';
 
@@ -71,7 +67,7 @@ const Accueil = () => {
   });
   const handleSave = async () => {
     try {
-      const response = await fetch(`${url}/api/ReservationsTable/Create_Reservation`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/ReservationsTable/Create_Reservation`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData), // ✅ JSON.stringify
@@ -106,7 +102,7 @@ const Accueil = () => {
       {/* Background div */}
       <div
         className="absolute inset-0 -z-50 bg-cover bg-center"
-        style={{ backgroundImage: `url/(${Header_Background.src})` }}
+        style={{ backgroundImage: `url(/images/Background_header_4.webp)` }}
       ></div>
       <div
         className="absolute inset-0 -z-40"
@@ -162,7 +158,7 @@ const Accueil = () => {
               <motion.div className="relative w-full" variants={scrollAnimation}>
                 {/* Background image */}
                 <Image
-                  src={Background_Assiets_header}
+                  src="/images/Acceuil/Background_Assiets_header.webp"
                   alt="Assiettes background"
                   quality={100}
                   width={612}
@@ -178,7 +174,7 @@ const Accueil = () => {
                   style={{ overflow: 'hidden' }}
                 >
                   <Image
-                    src={Assiets_header}
+                    src="/images/Acceuil/Assiets_header.webp"
                     alt="Assiettes"
                     quality={100}
                     width={400}
@@ -265,7 +261,7 @@ const Accueil = () => {
                 {/* Image Section (30%) */}
                 <div className="md:w-[30%] w-full object-cover md:h-full h-[20%]">
                   <Image
-                    src={Background_header}
+                    src="/images/Réservation_background.webp"
                     alt="image"
                     className="object-cover  w-full h-full"
                   />

@@ -2,31 +2,15 @@
 import React, { useMemo, useState } from 'react';
 import { Navbar } from "../../../components/common/Navbar";
 import Footer from "../../../components/common/Footer";
-import Background_header from "../../../../public/images/Réservation_background.webp";
 
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import getScrollAnimation from "../../../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "../../../layout/ScrollAnimationWrapper";
-import Header_Background from "../../../../public/images/Formations/Header_Background.webp";
-import Poivron from "../../../../public/images/A_propos/Poivron.webp";
-import Pate from "../../../../public/images/A_propos/Pate.webp";
-import Boisson from "../../../../public/images/A_propos/Boisson.webp";
-import Photo_Restaurant from "../../../../public/images/A_propos/Photo_Restaurant.webp";
-import Photo_Patisserie from "../../../../public/images/A_propos/Photo_Patisserie.webp";
-import Photo_Formation from "../../../../public/images/A_propos/Photo_Formation.webp";
-import Photo_Evenement from "../../../../public/images/A_propos/Photo_Evenement.webp";
-import Background_Service from "../../../../public/images/A_propos/Background_Service.webp";
-import partenaire_1 from "../../../../public/images/A_propos/partenaire_1.webp";
-import partenaire_2 from "../../../../public/images/A_propos/partenaire_2.webp";
-import partenaire_3 from "../../../../public/images/A_propos/partenaire_3.webp";
-import partenaire_4 from "../../../../public/images/A_propos/partenaire_4.webp";
-import partenaire_5 from "../../../../public/images/A_propos/partenaire_5.webp";
-import partenaire_6 from "../../../../public/images/A_propos/partenaire_6.webp";
 
-import tomat from "../../../../public/images/Formations/Patisserie/tomat.webp";
-import Background_Section from "../../../../public/images/A_propos/Background_Section.webp";
-import Epinard from "../../../../public/images/Formations/Cuisine/Epinard.webp";
+
+
+
 import { greatVibes, poppins } from '../../../Styles/fonts/fonts';
 import { SiCodefresh } from "react-icons/si";
 import { MdOutlineFamilyRestroom, MdRestaurantMenu } from "react-icons/md";
@@ -66,16 +50,16 @@ const fadeLeft = {
 
 
 const partenaire_logo = [
-  { image: partenaire_1, alt: 'partenaire_1' },
-  { image: partenaire_2, alt: 'partenaire_2' },
-  { image: partenaire_3, alt: 'partenaire_3' },
-  { image: partenaire_4, alt: 'partenaire_4' },
-  { image: partenaire_5, alt: 'partenaire_5' },
-  { image: partenaire_6, alt: 'partenaire_6' },
+  { image: "/images/A_propos/partenaire_1.webp", alt: 'partenaire_1' },
+  { image: "/images/A_propos/partenaire_2.webp", alt: 'partenaire_2' },
+  { image: "/images/A_propos/partenaire_3.webp", alt: 'partenaire_3' },
+  { image: "/images/A_propos/partenaire_4.webp", alt: 'partenaire_4' },
+  { image: "/images/A_propos/partenaire_5.webp", alt: 'partenaire_5' },
+  { image: "/images/A_propos/partenaire_6.webp", alt: 'partenaire_6' },
 ];
 const cardsData = [
   {
-    image: Photo_Restaurant,
+    image: "/images/A_propos/Photo_Restaurant.webp",
     alt: "Photo Restaurant",
     title: "Restaurant",
     Link: "Restaurant",
@@ -83,7 +67,7 @@ const cardsData = [
       "Savourez des plats variés faits maison dans un cadre chaleureux, préparés par nos chefs passionnés.",
   },
   {
-    image: Photo_Patisserie,
+    image: "/images/A_propos/Photo_Patisserie.webp",
     alt: "Photo Pâtisserie",
     title: "Pâtisserie",
     Link: "Patisserie",
@@ -91,7 +75,7 @@ const cardsData = [
       "Découvrez nos pâtisseries artisanales, alliant goût raffiné et présentation soignée.",
   },
   {
-    image: Photo_Formation,
+    image: "/images/A_propos/Photo_Formation.webp",
     alt: "Photo Formation",
     title: "Formation",
     Link: "Formations",
@@ -99,7 +83,7 @@ const cardsData = [
       "Participez à nos ateliers de cuisine ou pâtisserie et apprenez aux côtés de professionnels.",
   },
   {
-    image: Photo_Evenement,
+    image: "/images/A_propos/Photo_Evenement.webp",
     alt: "Photo Événement",
     title: "Événement",
     Link: "Evenement",
@@ -111,24 +95,24 @@ const cardsData = [
 export default function A_propos() {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
   const [isExpanded, setIsExpanded] = useState(false);
-    const [isReservationOpen, setIsReservationOpen] = useState(false);
-  
+  const [isReservationOpen, setIsReservationOpen] = useState(false);
+
   const toggleReservation = () => setIsReservationOpen((prev) => !prev);
   const handleToggle = () => {
 
     setIsExpanded((prev) => !prev);
   };
-    const [formData, setFormData] = useState({
-      Nom_Prenom_Reservation: "",
-      NumTel_Reservation: "",
-      Nbr_personne_Reservation: "",
-      Date_Reservation: "",
-      Horraire_Reservation: "",
-  
-    });
+  const [formData, setFormData] = useState({
+    Nom_Prenom_Reservation: "",
+    NumTel_Reservation: "",
+    Nbr_personne_Reservation: "",
+    Date_Reservation: "",
+    Horraire_Reservation: "",
+
+  });
   const handleSave = async () => {
     try {
-      const response = await fetch(`${url}/api/ReservationsTable/Create_Reservation`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/ReservationsTable/Create_Reservation`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData), // ✅ JSON.stringify
@@ -159,7 +143,8 @@ export default function A_propos() {
     <div className="min-h-screen relative overflow-x-hidden">
       <Navbar />
 
-      <Header backgroundImage={Header_Background.src}
+      <Header
+        backgroundImage={"/images/Formations/Header_Background.webp".src}
 
         subtitle="Notre Histoire"
         title={`[A propos] du Restaurant Enis `}
@@ -183,7 +168,7 @@ export default function A_propos() {
         viewport={{ once: true }}
         variants={fadeRight}
       >
-        <Image src={tomat} alt="Tomate décorative" loading="lazy" width={60} height={60} />
+        <Image src="/images/Formations/Patisserie/tomat.webp" alt="Tomate décorative" loading="lazy" width={60} height={60} />
       </motion.div>
 
 
@@ -194,7 +179,7 @@ export default function A_propos() {
         viewport={{ once: true }}
         variants={fadeRight}
       >
-        <Image src={Poivron} alt="Poivron décorative" loading="lazy" width={60} height={60} />
+        <Image src="/images/A_propos/Poivron.webp" alt="Poivron décorative" loading="lazy" width={60} height={60} />
       </motion.div>
 
 
@@ -210,7 +195,7 @@ export default function A_propos() {
         transition={{ delay: 0.9 }}
       >
         <Image
-          src={Epinard}
+          src="/images/Formations/Cuisine/Epinard.webp"
           alt="Epinard décoratif"
           width={170}
           height={170}
@@ -275,7 +260,7 @@ export default function A_propos() {
             variants={fadeUp}
           >
             <Image
-              src={Pate}
+              src="/images/A_propos/Pate.webp"
               alt="pâtisserie"
               width={600}
               height={800}
@@ -363,7 +348,7 @@ export default function A_propos() {
             variants={fadeUp}
           >
             <Image
-              src={Boisson}
+              src="/images/A_propos/Boisson.webp"
               alt="boisson"
               width={600}
               height={800}
@@ -379,7 +364,8 @@ export default function A_propos() {
       <section
         className="w-full relative min-h-[400px] md:min-h-[550px] flex items-center justify-center p-10"
         style={{
-          backgroundImage: `url(${Background_Section.src})`,
+      backgroundImage: "url('/images/A_propos/Background_Section.webp')",
+
           backgroundSize: "cover",
           backgroundPosition: "center",
 
@@ -475,8 +461,12 @@ export default function A_propos() {
       {/* Section 5 - services */}
 
 
-      <section className="text-black py-16 px-4 md:px-12 mt-15" style={{
-        backgroundImage: `url(${Background_Service.src})`,
+      <section className="text-black py-16 px-4 md:px-12 mt-15"
+ 
+      style={{
+ 
+     backgroundImage: "url('/images/A_propos/Background_Service.webp')",
+
         backgroundSize: "contain",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat", // éviter que l'image se répète
@@ -509,7 +499,7 @@ export default function A_propos() {
             <div className="w-full px-4 md:px-12 py-8 mt-10  ">
               <div className="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8  ">
                 {cardsData.map((card, index) => (
-                 
+
                   <motion.div
                     key={index}
                     className="rounded-xl overflow-hidden shadow-md border border-gray-300 backdrop-blur-[2px] bg-white/5 "
@@ -519,26 +509,26 @@ export default function A_propos() {
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                   >
-                     <Link href={card.Link} >
-                    <Image
-                      src={card.image}
-                      alt={card.alt}
-                      width={600}
-                      height={800}
-                      loading="lazy"
-                      className="w-full h-[240px] object-cover"
-                    />
-                    <div className="p-4">
-                      <h1
-                        className={`${greatVibes.className} green_color text-[32px] mb-2`}
-                      >
-                        {card.title}
-                      </h1>
-                      <p className="gray_color text-[15px] text-left">
-                        {card.description}
-                      </p>
-                    </div>
-                  </Link>
+                    <Link href={card.Link} >
+                      <Image
+                        src={card.image}
+                        alt={card.alt}
+                        width={600}
+                        height={800}
+                        loading="lazy"
+                        className="w-full h-[240px] object-cover"
+                      />
+                      <div className="p-4">
+                        <h1
+                          className={`${greatVibes.className} green_color text-[32px] mb-2`}
+                        >
+                          {card.title}
+                        </h1>
+                        <p className="gray_color text-[15px] text-left">
+                          {card.description}
+                        </p>
+                      </div>
+                    </Link>
 
                   </motion.div>
                 ))}
@@ -615,78 +605,78 @@ export default function A_propos() {
 
 
       </div>
-        {/* reservation form Overlay pr*/}
-            <AnimatePresence>
-              {isReservationOpen && (
-                <motion.div
-                  className="fixed py-10 top-0 right-0 h-full w-full flex justify-center items-center z-[1000] backdrop-blur-[3px]"
-                  style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ scale: 0.9, opacity: 0, transition: { duration: 0.2 } }} // exit plus rapide
-                  transition={{ duration: 0.2 }}
-      
-      
+      {/* reservation form Overlay pr*/}
+      <AnimatePresence>
+        {isReservationOpen && (
+          <motion.div
+            className="fixed py-10 top-0 right-0 h-full w-full flex justify-center items-center z-[1000] backdrop-blur-[3px]"
+            style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ scale: 0.9, opacity: 0, transition: { duration: 0.2 } }} // exit plus rapide
+            transition={{ duration: 0.2 }}
+
+
+          >
+            {/* Close Button */}
+
+
+            <div className="max-w-4xl  mx-auto flex md:flex-row flex-col justify-center items-center p-8">
+              <motion.div
+                className="bg-white w-full md:my-0 my-22   h-[600px] flex md:flex-row flex-col items-center  rounded-2xl shadow-lg overflow-hidden"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.3 }} // déclenche une fois quand 30% visible
+                transition={{ duration: 0.4 }}
+              >
+                {/* Image Section (30%) */}
+                <div className="md:w-[30%] w-full object-cover md:h-full h-[20%]">
+                  <Image
+                    src="/images/Réservation_background.webp"
+                    alt="image"
+                    className="object-cover  w-full h-full"
+                  />
+                </div>
+
+                {/* Form Section (70%) */}
+                <div className="relative md:w-[70%] w-full h-full   flex flex-col items-start justify-center md:px-10  px-5 md:pt-0 pt-56 md:pb-0 pb-5 md:overflow-y-hidden overflow-y-scroll"
                 >
-                  {/* Close Button */}
-      
-      
-                  <div className="max-w-4xl  mx-auto flex md:flex-row flex-col justify-center items-center p-8">
-                    <motion.div
-                      className="bg-white w-full md:my-0 my-22   h-[600px] flex md:flex-row flex-col items-center  rounded-2xl shadow-lg overflow-hidden"
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true, amount: 0.3 }} // déclenche une fois quand 30% visible
-                      transition={{ duration: 0.4 }}
-                    >
-                      {/* Image Section (30%) */}
-                      <div className="md:w-[30%] w-full object-cover md:h-full h-[20%]">
-                        <Image
-                          src={Background_header}
-                          alt="image"
-                          className="object-cover  w-full h-full"
-                        />
-                      </div>
-      
-                      {/* Form Section (70%) */}
-                      <div className="relative md:w-[70%] w-full h-full   flex flex-col items-start justify-center md:px-10  px-5 md:pt-0 pt-56 md:pb-0 pb-5 md:overflow-y-hidden overflow-y-scroll"
-                      >
-      
-                        <button
-                          className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl focus:outline-none"
-                          onClick={toggleReservation}
-                        >
-                          <IoClose />
-                        </button>
-                        <h3
-                          className={`${greatVibes.className} md:pt-0  text-yellow-500 font-medium text-[25px] mb-2 flex items-center gap-2`}
-                        >
-                          Réservation
-                          <span className="inline-block h-[2px] w-10 bg-yellow-500 mt-3"></span>
-                        </h3>
-                        <motion.h1
-                          className={`${poppins.className} dark_color font-bold text-[22px] lg:text-[27px] xl:text-[28px]`}
-                          variants={fadeUp}
-                          transition={{ delay: 0.2 }}
-                        >
-                          Votre table, prête à vous accueillir
-                        </motion.h1>
-                        <motion.p
-                          className={`${poppins.className} text-black/50 font-medium mt-3 mb-10  max-w-3xl md:text-[14px] text-[13px] mx-auto`}
-                          variants={fadeUp}
-                          transition={{ delay: 0.4 }}
-                        >
-                          Assurez-vous une place en réservant dès maintenant ! Notre équipe
-                          vous accueillera avec plaisir pour partager un moment gourmand et
-                          convivial
-                        </motion.p>
-                        <FormReservation onSubmit={handleSave} formData={formData} setFormData={setFormData} />
-                      </div>
-                    </motion.div>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+
+                  <button
+                    className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl focus:outline-none"
+                    onClick={toggleReservation}
+                  >
+                    <IoClose />
+                  </button>
+                  <h3
+                    className={`${greatVibes.className} md:pt-0  text-yellow-500 font-medium text-[25px] mb-2 flex items-center gap-2`}
+                  >
+                    Réservation
+                    <span className="inline-block h-[2px] w-10 bg-yellow-500 mt-3"></span>
+                  </h3>
+                  <motion.h1
+                    className={`${poppins.className} dark_color font-bold text-[22px] lg:text-[27px] xl:text-[28px]`}
+                    variants={fadeUp}
+                    transition={{ delay: 0.2 }}
+                  >
+                    Votre table, prête à vous accueillir
+                  </motion.h1>
+                  <motion.p
+                    className={`${poppins.className} text-black/50 font-medium mt-3 mb-10  max-w-3xl md:text-[14px] text-[13px] mx-auto`}
+                    variants={fadeUp}
+                    transition={{ delay: 0.4 }}
+                  >
+                    Assurez-vous une place en réservant dès maintenant ! Notre équipe
+                    vous accueillera avec plaisir pour partager un moment gourmand et
+                    convivial
+                  </motion.p>
+                  <FormReservation onSubmit={handleSave} formData={formData} setFormData={setFormData} />
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <Footer />
     </div>
   );

@@ -35,8 +35,7 @@ export default function Evenement({ events = [], searchTerm = "", filterType = "
     } else {
       const fetchevenements = async () => {
         try {
-          url=process.env.url
-          const response = await axios.get(`${url}/api/evenements/Get_AllEvenements`);
+           const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/evenements/Get_AllEvenements`);
           setEvenements(response.data);
         } catch (error) {
           console.error("Erreur lors du chargement des événements", error);
@@ -98,8 +97,7 @@ export default function Evenement({ events = [], searchTerm = "", filterType = "
 
   const handleSave = async () => {
     try {
-      url=process.env.url
-      await axios.put(`${url}/api/Evenements/Update_spec_Evenement/${selectedevenement.id_Evenement}`, formData);
+       await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/Evenements/Update_spec_Evenement/${selectedevenement.id_Evenement}`, formData);
       setEvenements(prev =>
         prev.map(f =>
           f.id_Evenement === selectedevenement.id_Evenement
@@ -167,7 +165,7 @@ export default function Evenement({ events = [], searchTerm = "", filterType = "
                   <TableCell className="px-4 py-3">
                     <EditButton
                       id={evenement.id}
-                      deleteUrl={`${url}/api/Evenements/Delete_spec_Evenement/${evenement.id_Evenement}`}
+                      deleteUrl={`${process.env.NEXT_PUBLIC_API_URL}/api/Evenements/Delete_spec_Evenement/${evenement.id_Evenement}`}
                       onDelete={() => setEvenements(prev => prev.filter(f => f.id_Evenement !== evenement.id_Evenement))}
                       showVoirPlusButton={true}
                       ShowDetailsButton={true}

@@ -32,8 +32,8 @@ export default function ContactTables({ searchTerm = "", filterType = "" }) {
   useEffect(() => {
     const fetchContact = async () => {
       try {
-        url=process.env.url
-        const response = await axios.get(`${url}/api/Contact/Get_AllContact`);
+    
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/Contact/Get_AllContact`);
         setContact(response.data);
       } catch (error) {
         console.error("Erreur lors du chargement des Contact", error);
@@ -73,7 +73,7 @@ export default function ContactTables({ searchTerm = "", filterType = "" }) {
 
   const handleSave = async () => {
     try {
-      await axios.put(`${url}/api/Contact/Update_spec_Contact/${selectedContact.id_Contact}`, formData);
+      await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/Contact/Update_spec_Contact/${selectedContact.id_Contact}`, formData);
       setContact(prev =>
         prev.map(f =>
           f.id_Contact === selectedContact.id_Contact
@@ -149,7 +149,7 @@ export default function ContactTables({ searchTerm = "", filterType = "" }) {
                     <TableCell className="px-4 py-3">
                       <EditButton
                         id={Contact.id}
-                        deleteUrl={`${url}/api/Contact/Delete_spec_Contact/${Contact.id_Contact}`}
+                        deleteUrl={`${process.env.NEXT_PUBLIC_API_URL}/api/Contact/Delete_spec_Contact/${Contact.id_Contact}`}
                         onDelete={() => setContact(prev => prev.filter(f => f.id_Contact !== Contact.id_Contact))}
 
                         showDeleteButton={true}
@@ -158,7 +158,7 @@ export default function ContactTables({ searchTerm = "", filterType = "" }) {
 
                         etatField="Etat_Contact"
 
-                        urlUpdate={`${url}/api/Contact/Update_spec_Contact/${Contact.id_Contact}`}
+                        urlUpdate={`${process.env.NEXT_PUBLIC_API_URL}/api/Contact/Update_spec_Contact/${Contact.id_Contact}`}
                         onUpdate={handleUpdateEtat}
 
 

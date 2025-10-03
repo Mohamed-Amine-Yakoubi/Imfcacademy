@@ -39,7 +39,7 @@ export default function Tables_Formation() {
       });
     }
       const response = await fetch(
-        `${url}/api/Formations/Create_Formation`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/Formations/Create_Formation`,
         {
           method: "POST",
           body: formPayload,
@@ -70,6 +70,8 @@ export default function Tables_Formation() {
       alert("Une erreur est survenue lors de la création.");
     }
   };
+  console.log("API_URL:", process.env.NEXT_PUBLIC_API_URL);
+
   return (
     <div>
       <PageBreadcrumb pageTitle="Formation" />

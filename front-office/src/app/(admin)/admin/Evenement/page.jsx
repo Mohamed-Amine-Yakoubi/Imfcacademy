@@ -34,7 +34,7 @@ export default function Tables_Evenement() {
       }
 
       const response = await fetch(
-        `${url}/api/Evenements/Create_Evenement`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/Evenements/Create_Evenement`,
         {
           method: "POST",
           body: formPayload,

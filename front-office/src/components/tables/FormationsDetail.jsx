@@ -10,7 +10,7 @@ export default function FormationDetail({ FormationId }) {
   useEffect(() => {
     const fetchFormations = async () => {
       try {
-        const response = await axios.get(`${url}/api/Formations/Get_spec_Formation/${FormationId}`);
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/Formations/Get_spec_Formation/${FormationId}`);
         setFormationdetail(response.data);
 
         // Filtrer uniquement les images
@@ -19,7 +19,7 @@ export default function FormationDetail({ FormationId }) {
         );
 
         if (images.length > 0) {
-          setActiveImage(new URL(images[0], "http://localhost:4000").href);
+          setActiveImage(new URL(images[0], `${process.env.NEXT_PUBLIC_API_URL}`).href);
         }
       } catch (error) {
         console.error("Erreur lors du chargement des formations", error);
@@ -33,7 +33,7 @@ export default function FormationDetail({ FormationId }) {
   // Filtrer uniquement les images et construire les URLs absolues
   const imageProd = (formation.photo_formation || [])
     .filter(file => /\.(png|jpe?g|gif|webp)$/i.test(file))
-    .map(img => new URL(img, "http://localhost:4000").href);
+    .map(img => new URL(img, `${process.env.NEXT_PUBLIC_API_URL}`).href);
 
   // Fonction utilitaire pour valider src
   const isValidSrc = (src) => typeof src === "string" && src.length > 0;

@@ -10,22 +10,8 @@ import Footer from "../../../components/common/Footer";
 import Menu_link from '../../../components/common/Menu_link';
 import Section_titles from '../../../components/common/Section_titles';
 
-import Header_Background from "../../../../public/images/Formations/Header_Background.webp";
-import Background_section from "../../../../public/images/Menu_patisserie/Background_section.webp";
-import Boissons from "../../../../public/images/Menu_patisserie/Boissons.webp";
-import Boissons_froides from "../../../../public/images/Menu_patisserie/Boissons_froides.webp";
-import Cocktails_Fruits from "../../../../public/images/Menu_patisserie/Cocktails_Fruits.webp";
-import Crepes_Salées from "../../../../public/images/Menu_patisserie/Crepes_Salées.webp";
-import Crepes_Sucrées from "../../../../public/images/Menu_patisserie/Crepes_Sucrées.webp";
-import Dessert from "../../../../public/images/Menu_patisserie/Dessert.webp";
-import Gateaux from "../../../../public/images/Menu_patisserie/Gateaux.webp";
-import Gaufres from "../../../../public/images/Menu_patisserie/Gaufres.webp";
-import Glace from "../../../../public/images/Menu_patisserie/Glace.webp";
-import Jus from "../../../../public/images/Menu_patisserie/Jus.webp";
-import Milkshakes from "../../../../public/images/Menu_patisserie/Milkshakes.webp";
-import Petit_déjeuner from "../../../../public/images/Menu_patisserie/Petit_déjeuner.webp";
-import Tapas_Charcuterie from "../../../../public/images/Menu_patisserie/Tapas & Charcuterie.webp";
-import brush from "../../../../public/images/brush.webp";
+ 
+ 
 
 import ScrollAnimationWrapper from '@/layout/ScrollAnimationWrapper';
 
@@ -35,22 +21,22 @@ const Menu_item = [
   {
     category: "Sucré & Gourmandises",
     items: [
-      { src: Crepes_Salées, label: "Crêpes salées", Specialite: "Crêpes salées" },
-      { src: Crepes_Sucrées, label: "Crêpes sucrées", Specialite: "Crêpes sucrées" },
-      { src: Gaufres, label: "Gaufres", Specialite: "Gaufres" },
-      { src: Gateaux, label: "Gâteaux", Specialite: "Gâteaux" },
-      { src: Dessert, label: "Desserts", Specialite: "Desserts" },
+      { src: "/images/Menu_patisserie/Crepes_Salées.webp", label: "Crêpes salées", Specialite: "Crêpes salées" },
+      { src: "/images/Menu_patisserie/Crepes_Sucrées.webp", label: "Crêpes sucrées", Specialite: "Crêpes sucrées" },
+      { src: "/images/Menu_patisserie/Gaufres.webp", label: "Gaufres", Specialite: "Gaufres" },
+      { src: "/images/Menu_patisserie/Gateaux.webp", label: "Gâteaux", Specialite: "Gâteaux" },
+      { src: "/images/Menu_patisserie/Dessert.webp", label: "Desserts", Specialite: "Desserts" },
     ],
   },
   {
     category: "Liquides & Boissons",
     items: [
       // { src: Glace, label: "Glaces", Specialite: "Glaces" },
-      { src: Milkshakes, label: "Milkshakes", Specialite: "Milkshakes" },
-      { src: Jus, label: "Jus", Specialite: "Jus" },
-      { src: Cocktails_Fruits, label: "Cocktail de fruits", Specialite: "Cocktail de fruits" },
-      { src: Boissons, label: "Boissons chaudes", Specialite: "Boissons chaudes" },
-      { src: Boissons_froides, label: "Boissons froides", Specialite: "Boissons froides" },
+      { src:  "/images/Menu_patisserie/Milkshakes.webp", label: "Milkshakes", Specialite: "Milkshakes" },
+      { src: "/images/Menu_patisserie/Jus.webp", label: "Jus", Specialite: "Jus" },
+      { src: "/images/Menu_patisserie/Cocktails_Fruits.webp", label: "Cocktail de fruits", Specialite: "Cocktail de fruits" },
+      { src: "/images/Menu_patisserie/Boissons.webp", label: "Boissons chaudes", Specialite: "Boissons chaudes" },
+      { src: "/images/Menu_patisserie/Boissons_froides.webp", label: "Boissons froides", Specialite: "Boissons froides" },
     ],
   },
   {
@@ -207,7 +193,7 @@ const [openIndex, setOpenIndex] = useState(null); // null = aucun ouvert
       <Navbar />
 
       <Header
-        backgroundImage={Header_Background.src}
+        backgroundImage="/images/Formations/Header_Background.webp"
         subtitle="Saveurs en Images"
         title={`[L’Art Culinaire] du Restaurant Enis`}
         greatVibes={greatVibes}
@@ -220,7 +206,7 @@ const [openIndex, setOpenIndex] = useState(null); // null = aucun ouvert
 
       <div
         style={{
-          backgroundImage: `url(${Background_section.src})`,
+          backgroundImage: `url(/images/Menu_patisserie/Background_section.webp)`,
           backgroundSize: "contain",
           backgroundPosition: "center",
           backgroundRepeat: "repeat",
@@ -552,7 +538,7 @@ const [openIndex, setOpenIndex] = useState(null); // null = aucun ouvert
               {/* Image Section */}
               <div className="flex justify-center  items-center flex-shrink-0  ">
                 <Image
-                  src={Tapas_Charcuterie.src}
+                  src="/images/Menu_patisserie/Tapas & Charcuterie.webp"
                   alt="photo Tapas & Charcuterie"
                   width={300}
                   height={300}
@@ -637,7 +623,7 @@ const [openIndex, setOpenIndex] = useState(null); // null = aucun ouvert
   className="relative w-full max-w-xs lg:max-w-md mx-auto rounded-md overflow-hidden shadow-lg"
 >
   <Image
-    src={item.img || Header_Background}
+    src={item.img || "/images/Formations/Header_Background.webp"}
     alt={item.name}
     width={400}
     height={500}
@@ -681,7 +667,7 @@ const [openIndex, setOpenIndex] = useState(null); // null = aucun ouvert
           <div className="flex  lg:flex-row flex-col mt-5 items-center justify-center gap-1  ">
             <div className="relative inline-block py-4 w-1/2 sm:w-[150px]">
               <Image
-                src={brush}
+                src="/images/brush.webp"
                 alt="brush"
                 width={500}
                 height={500}
@@ -694,7 +680,7 @@ const [openIndex, setOpenIndex] = useState(null); // null = aucun ouvert
 
             <div className="relative inline-block py-4 w-1/2 sm:w-[150px]">
               <Image
-                src={brush}
+                src="/images/brush.webp"
                 alt="brush"
                 width={500}
                 height={500}

@@ -12,7 +12,7 @@ const handler = NextAuth({
       },
       async authorize(credentials) {
         try {
-          const res = await fetch('${url}/api/User/SingIn', {
+          const res = await fetch('${process.env.NEXT_PUBLIC_API_URL}/api/User/SingIn', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

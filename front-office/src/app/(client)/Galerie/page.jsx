@@ -2,20 +2,7 @@
 
 import { Navbar } from '@/components/common/Navbar';
 import React from 'react';
-import Header_Background from "../../../../public/images/Formations/Header_Background.webp";
-import photo_1 from "../../../../public/images/Gallerie/photo_1.webp";
-import photo_2 from "../../../../public/images/Gallerie/photo_2.webp";
-import photo_3 from "../../../../public/images/Gallerie/photo_3.webp";
-import photo_4 from "../../../../public/images/Gallerie/photo_4.webp";
-import photo_5 from "../../../../public/images/Gallerie/photo_5.webp";
-import photo_6 from "../../../../public/images/Gallerie/photo_6.webp";
-import photo_7 from "../../../../public/images/Gallerie/photo_7.webp";
-import photo_8 from "../../../../public/images/Gallerie/photo_8.webp";
-import photo_9 from "../../../../public/images/Gallerie/photo_9.webp";
-import photo_10 from "../../../../public/images/Gallerie/photo_10.webp";
-import photo_11 from "../../../../public/images/Gallerie/photo_11.webp";
-import photo_12 from "../../../../public/images/Gallerie/photo_12.webp";
-import background_section from "../../../../public/images/Formations/background_section.webp";
+ 
 
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
@@ -55,18 +42,18 @@ const fadeLeft = {
 };
 // Images avec catégorie
 const images = [
-  { src: photo_1, alt: 'photo_1', category: "Restaurant" },
-  { src: photo_2, alt: 'photo_2', category: "Restaurant" },
-  { src: photo_3, alt: 'photo_3', category: "Restaurant" },
-  { src: photo_4, alt: 'photo_4', category: "Restaurant" },
-  { src: photo_5, alt: 'photo_5', category: "Restaurant" },
-  { src: photo_6, alt: 'photo_6', category: "Restaurant" },
-  { src: photo_7, alt: 'photo_7', category: "Évènement" },
-  { src: photo_8, alt: 'photo_8', category: "Évènement" },
-  { src: photo_9, alt: 'photo_9', category: "Évènement" },
-  { src: photo_10, alt: 'photo_10', category: "Évènement" },
-  { src: photo_11, alt: 'photo_11', category: "Évènement" },
-  { src: photo_12, alt: 'photo_12', category: "Évènement" },
+  {alt:" photo_1", src: '/images/Gallerie/photo_1.webp', category: "Restaurant" },
+  {alt:" photo_2", src: '/images/Gallerie/photo_2.webp', category: "Restaurant" },
+  {alt:" photo_3", src: '/images/Gallerie/photo_3.webp', category: "Restaurant" },
+  {alt:" photo_4", src: '/images/Gallerie/photo_4.webp', category: "Restaurant" },
+  {alt:" photo_5", src: '/images/Gallerie/photo_5.webp', category: "Restaurant" },
+  {alt:" photo_6", src: '/images/Gallerie/photo_6.webp', category: "Restaurant" },
+  {alt:" photo_7", src: '/images/Gallerie/photo_7.webp', category: "Évènement" },
+  {alt:" photo_8", src: '/images/Gallerie/photo_8.webp', category: "Évènement" },
+  {alt:" photo_9", src: '/images/Gallerie/photo_9.webp', category: "Évènement" },
+  { alt:"photo_10", src: '/images/Gallerie/photo_10.webp', category: "Évènement" },
+  { alt:"photo_11", src: '/images/Gallerie/photo_11.webp', category: "Évènement" },
+  { alt:"photo_12", src: '/images/Gallerie/photo_12.webp', category: "Évènement" },
 
 
 
@@ -86,7 +73,7 @@ export default function Galerie() {
       <Navbar />
 
       <Header
-        backgroundImage={Header_Background.src}
+        backgroundImage="/images/Formations/Header_Background.webp"
         subtitle="Saveurs en Images"
         title={`[L’Art Culinaire] du Restaurant Enis `}
 
@@ -100,7 +87,7 @@ export default function Galerie() {
       <div
         className=" min-h-screen w-full  "
         style={{
-          backgroundImage: `url(${background_section.src})`,
+          backgroundImage: `url(/images/Formations/background_section.webp)`,
           backgroundSize: "cover",   // instead of "contain"
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

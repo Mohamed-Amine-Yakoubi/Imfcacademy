@@ -78,7 +78,7 @@ export default function Menu({ menu = [], searchTerm = "", filterType = "" }) {
     } else {
       const fetchMenu = async () => {
         try {
-          const response = await axios.get(`${url}/api/Menu/Get_AllMenu`);
+          const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/Menu/Get_AllMenu`);
           setMenu(response.data);
         } catch (error) {
           console.error("Erreur lors du chargement des événements", error);
@@ -129,7 +129,7 @@ export default function Menu({ menu = [], searchTerm = "", filterType = "" }) {
       });
 
       const response = await axios.put(
-        `${url}/api/Menu/Update_spec_Menu/${selectedMenu.id_Menu}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/Menu/Update_spec_Menu/${selectedMenu.id_Menu}`,
         data,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
@@ -173,7 +173,7 @@ export default function Menu({ menu = [], searchTerm = "", filterType = "" }) {
                 <TableRow key={index}>
                   <TableCell className="px-4 py-3 text-gray-500 text-theme-sm dark:text-gray-400">{index + 1}</TableCell>
                   <TableCell className="px-4 py-3 text-gray-500 text-theme-sm dark:text-gray-400 flex items-center "><Image
-                    src={Menu.photo_Menu ? `${url}${Menu.photo_Menu}` : "/images/placeholder.png"}
+                    src={Menu.photo_Menu ? `${process.env.NEXT_PUBLIC_API_URL}${Menu.photo_Menu}` : "/images/placeholder.png"}
                     alt="photo"
                     width={200}
                     className="w-10 h-10 rounded-full mr-2"
@@ -187,7 +187,7 @@ export default function Menu({ menu = [], searchTerm = "", filterType = "" }) {
                   <TableCell className="px-4 py-3">
                     <EditButton
                       id={Menu.id}
-                      deleteUrl={`${url}/api/Menu/Delete_spec_Menu/${Menu.id_Menu}`}
+                      deleteUrl={`${process.env.NEXT_PUBLIC_API_URL}/api/Menu/Delete_spec_Menu/${Menu.id_Menu}`}
                       onDelete={() => setMenu(prev => prev.filter(f => f.id_Menu !== Menu.id_Menu))}
 
                       showDeleteButton={true}

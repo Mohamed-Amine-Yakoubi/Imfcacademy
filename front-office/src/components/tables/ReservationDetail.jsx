@@ -19,7 +19,7 @@ export default function ReservationDetail({ id_Evenement, searchTerm = "", filte
     const fetchReservations = async () => {
       try {
         const response = await axios.get(
-          `${url}/api/ReservationsEvent/Get_spec_Reservation/${id_Evenement}`
+          `${process.env.NEXT_PUBLIC_API_URL}/api/ReservationsEvent/Get_spec_Reservation/${id_Evenement}`
         );
         setReservations(response.data);
       } catch (error) {
@@ -114,8 +114,8 @@ export default function ReservationDetail({ id_Evenement, searchTerm = "", filte
                         showApproveButton={true}
                         showCancelButton={true}
                         etatField="Etat_Reservation"
-                        urlUpdate={`${url}/api/ReservationsEvent/Update_spec_Reservation/${reservation.id_Reservation}`}
-                        deleteUrl={`${url}/api/ReservationsEvent/Delete_spec_Reservation/${reservation.id_Reservation}`}
+                        urlUpdate={`${process.env.NEXT_PUBLIC_API_URL}/api/ReservationsEvent/Update_spec_Reservation/${reservation.id_Reservation}`}
+                        deleteUrl={`${process.env.NEXT_PUBLIC_API_URL}/api/ReservationsEvent/Delete_spec_Reservation/${reservation.id_Reservation}`}
                         onUpdate={handleUpdateEtat}
                         onDelete={() =>
                           setReservations((prev) =>

@@ -2,23 +2,8 @@
 
 import { Navbar } from '@/components/common/Navbar';
 import React, { useEffect, useMemo, useState } from 'react';
-import Header_Background from "../../../../public/images/Formations/Header_Background.webp";
-import Background_section from "../../../../public/images/Menu_restaurant/Background_section.webp";
-import Burger from "../../../../public/images/Menu_restaurant/Burger.webp";
-import Entrées_libanaises from "../../../../public/images/Menu_restaurant/Entrées_libanaises.webp";
-import Grillades from "../../../../public/images/Menu_restaurant/Griallades.webp";
-import Pate from "../../../../public/images/Menu_restaurant/Pate.webp";
-import Pizza from "../../../../public/images/Menu_restaurant/Pizza.webp";
-import Salade from "../../../../public/images/Menu_restaurant/Salade.webp";
-import Sandwichs from "../../../../public/images/Menu_restaurant/Sandwichs.webp";
-import Soupe from "../../../../public/images/Menu_restaurant/Soupe.webp";
-import Plat from "../../../../public/images/Menu_restaurant/Plats.webp";
-import Fruits_de_mer from "../../../../public/images/Menu_restaurant/Fruits_de_mer.webp";
-import Poisson from "../../../../public/images/Menu_restaurant/Poisson.webp";
-import Volailles from "../../../../public/images/Menu_restaurant/Volailles.webp";
-import Viande_rouge from "../../../../public/images/Menu_restaurant/Viande_rouge.webp";
-import Lapin from "../../../../public/images/Menu_restaurant/Lapin.webp";
-import Image from "next/image";
+ 
+ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import getScrollAnimation from "../../../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "../../../layout/ScrollAnimationWrapper";
@@ -31,26 +16,24 @@ import Menu_link_cards from '../../../components/common/Menu_link_cards';
 import Section_titles from '../../../components/common/Section_titles';
 
 const Menu_item = [
-  { src: Burger, label: 'Burger', Specialite: "Burger" },
-  { src: Entrées_libanaises, label: 'Entrées libanaises', Specialite: "Entrées libanaises" },
-  { src: Grillades, label: 'Grillades', Specialite: "Grillades" },
-  { src: Pate, label: 'Pate', Specialite: "Pate" },
-  { src: Pizza, label: 'Pizza', Specialite: "Pizza" },
-  { src: Salade, label: 'Salade', Specialite: "Salade" },
-  { src: Plat, label: 'Plat', Specialite: "Plat" },
-  { src: Sandwichs, label: 'Sandwichs', Specialite: "Sandwichs" },
-  { src: Soupe, label: 'Soupe', Specialite: "Soupe" }
+  { src: "/images/Menu_restaurant/Burger.webp", label: 'Burger', Specialite: "Burger" },
+  { src: "/images/Menu_restaurant/Entrées_libanaises.webp", label: 'Entrées libanaises', Specialite: "Entrées libanaises" },
+  { src: "/images/Menu_restaurant/Griallades.webp", label: 'Grillades', Specialite: "Grillades" },
+  { src: "/images/Menu_restaurant/Pate.webp", label: 'Pate', Specialite: "Pate" },
+  { src: "/images/Menu_restaurant/Pizza.webp", label: 'Pizza', Specialite: "Pizza" },
+  { src: "/images/Menu_restaurant/Salade.webp", label: 'Salade', Specialite: "Salade" },
+  { src: "/images/Menu_restaurant/Sandwichs.webp", label: 'Plat', Specialite: "Plat" },
+  { src: "/images/Menu_restaurant/Sandwichs.webp", label: 'Sandwichs', Specialite: "Sandwichs" },
+  { src: "/images/Menu_restaurant/Soupe.webp", label: 'Soupe', Specialite: "Soupe" }
 ];
 
-
-
 const plats_Composes = [
-  { img: Volailles, Specialite: "Volailles" },
-  { img: Viande_rouge, Specialite: "Viandes rouges" },
+  { img: "/images/Menu_restaurant/Volailles.webp", Specialite: "Volailles" },
+  { img: "/images/Menu_restaurant/Viande_rouge.webp", Specialite: "Viandes rouges" },
 
-  { img: Lapin, Specialite: "Lapin" },
-  { img: Poisson, Specialite: "Poisson" },
-  { img: Fruits_de_mer, Specialite: "Fruits de mer" },
+  { img: "/images/Menu_restaurant/Lapin.webp", Specialite: "Lapin" },
+  { img: "/images/Menu_restaurant/Poisson.webp", Specialite: "Poisson" },
+  { img: "/images/Menu_restaurant/Fruits_de_mer.webp", Specialite: "Fruits de mer" },
 ]
   ;
 const fadeUp = {
@@ -139,7 +122,7 @@ useEffect(() => {
       <Navbar />
 
       <Header
-        backgroundImage={Header_Background.src}
+        backgroundImage="/images/Formations/Header_Background.webp"
         subtitle="Saveurs en Images"
         title={`[L’Art Culinaire] du Restaurant Enis `}
         greatVibes={greatVibes}
@@ -151,7 +134,7 @@ useEffect(() => {
       />
       <div className=""
         style={{
-          backgroundImage: `url(${Background_section.src})`,
+          backgroundImage: `url(/images/Menu_restaurant/Background_section.webp)`,
           backgroundSize: "contain",
           backgroundPosition: "center  ", // décale vers le haut de 50px
 
