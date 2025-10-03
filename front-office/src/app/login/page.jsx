@@ -7,8 +7,7 @@ import Image from "next/image";
 import { RiLockPasswordFill } from "react-icons/ri";
 
 import { MdEmail } from "react-icons/md";
-import Background_SignIn from "../../../public/images/Background_SignIn1.jpg";
-import Logo_enis from "../../../public/images/logo/Logo_enis.png";
+ 
 import Input from "../../components/form/input/InputField";
 import Button from "../../components/ui/button/Button";
 
@@ -62,11 +61,11 @@ export default function login() {
   return (
     <div
       className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: `url(${Background_SignIn.src})` }}
+      style={{ backgroundImage: `url(../../../public/images/Background_SignIn1.jpg)` }}
     >
       <div className="absolute inset-0 bg-black opacity-40"></div>
       <div className="relative w-96 h-[500px] rounded-md flex flex-col items-center justify-center bg-white shadow">
-        <Image src={Logo_enis} alt="logo" className="w-[100px]" />
+        {/* <Image src="../../../public/images/logo/Logo_enis.png" width={100} height={100} alt="logo" className="w-[100px]" /> */}
         <form
           className="mt-16 mb-2 mx-auto w-80 max-w-screen-lg"
           onSubmit={handleSubmit}
