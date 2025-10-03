@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
-import Logo_Enis from "../../../public/images/Logo_Enis.webp";
 import Logo_Footer from "../../../public/images/Logo_Footer.webp";
 import Persil from "../../../public/images/Persil.webp";
 import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
@@ -50,8 +49,10 @@ const Footer = () => {
           >
             <Link href="/" className="mb-6 inline-block max-w-[160px]">
               <Image
-                src={Logo_Enis}
+                src="/images/Logo_Enis.webp"
                 alt="logo"
+                 width={450}
+          height={450}
                 className="max-w-full dark:hidden"
               />
             </Link>

@@ -18,7 +18,7 @@ export default function Candidats({ CandidatId, searchTerm = "", filterType = ""
     const fetchCandidats = async () => {
       try {
         const response = await axios.get(
-          `${url}/api/Inscriptions/Get_Inscription_Formation/${CandidatId}`
+          `${process.env.NEXT_PUBLIC_API_URL}/api/Inscriptions/Get_Inscription_Formation/${CandidatId}`
         );
         setCandidats(response.data);
       } catch (error) {
@@ -48,7 +48,7 @@ export default function Candidats({ CandidatId, searchTerm = "", filterType = ""
   const handleMontantBlur = async (id, montant) => {
     try {
       await axios.put(
-        `${url}/api/Inscriptions/Update_spec_Inscription/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/Inscriptions/Update_spec_Inscription/${id}`,
         { Montant_payer: montant }
       );
     } catch (error) {
@@ -161,8 +161,8 @@ export default function Candidats({ CandidatId, searchTerm = "", filterType = ""
                         showRejectButton={true}
                         etatField="Etat_Inscrit"
 
-                        urlUpdate={`${url}/api/Inscriptions/Update_spec_Inscription/${c.id_Inscrit}`}
-                        deleteUrl={`${url}/api/Inscriptions/Delete_spec_Inscription/${c.id_Inscrit}`}
+                        urlUpdate={`${process.env.NEXT_PUBLIC_API_URL}/api/Inscriptions/Update_spec_Inscription/${c.id_Inscrit}`}
+                        deleteUrl={`${process.env.NEXT_PUBLIC_API_URL}/api/Inscriptions/Delete_spec_Inscription/${c.id_Inscrit}`}
                         onDelete={() =>
                           setCandidats((prev) =>
                             prev.filter((f) => f.id_Inscrit !== c.id_Inscrit)

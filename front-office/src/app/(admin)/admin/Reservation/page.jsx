@@ -28,7 +28,7 @@ export default function Tables_Réservation() {
   });
 const handleSave = async () => {
   try {
-    const response = await fetch(`${url}/api/ReservationsTable/Create_Reservation`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/ReservationsTable/Create_Reservation`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData), // ✅ JSON.stringify

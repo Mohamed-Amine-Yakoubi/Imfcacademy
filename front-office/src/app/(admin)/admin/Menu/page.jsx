@@ -65,7 +65,7 @@ export default function Tables_Menu() {
       formPayload.append("Category", menuCategory); // attach category
 
       const response = await fetch(
-        `${url}/api/Menu/Create_Menu`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/Menu/Create_Menu`,
         { method: "POST", body: formPayload }
       );
 

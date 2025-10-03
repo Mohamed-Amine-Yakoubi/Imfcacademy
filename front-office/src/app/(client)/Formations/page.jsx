@@ -10,13 +10,8 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import getScrollAnimation from "../../../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "../../../layout/ScrollAnimationWrapper";
-import background_section from "../../../../public/images/Formations/background_section.webp";
-
-import Header_Background from "../../../../public/images/Formations/Header_Background.webp";
-import Gateau_2 from "../../../../public/images/Formations/Patisserie/Gateau_2.webp";
-import Macaran from "../../../../public/images/Formations/Patisserie/Macaran.webp";
-import tomat from "../../../../public/images/Formations/Patisserie/tomat.webp";
-
+ 
+ 
 
 import { greatVibes, poppins } from '../../../Styles/fonts/fonts';
 import { FaArrowLeft, FaCalendarAlt, FaFileAlt, FaMoneyBillWave } from 'react-icons/fa';
@@ -53,8 +48,7 @@ const fadeLeft = {
   },
 };
 const Catégory = ["Aide Cuisinier", "Aide Pâtisserie", "Agent de Réception et Accueil", "Aide Service et Bar", "Agent de Nettoyage"];
-const API_BASE_URL = "http://localhost:4000";
-
+ 
 export default function Formations() {
   const sectionRef = useRef(null);
 
@@ -101,7 +95,7 @@ export default function Formations() {
   useEffect(() => {
     const fetchFormations = async () => {
       try {
-        const response = await axios.get(`${url}/api/Formations/Get_AllFormations`);
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/Formations/Get_AllFormations`);
         setFormations(response.data);
         console.log("setFormations", response.data)
 
@@ -131,7 +125,7 @@ export default function Formations() {
 
 
 
-      const response = await fetch(`${url}/api/Inscriptions/Create_Inscription`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Inscriptions/Create_Inscription`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -164,7 +158,7 @@ export default function Formations() {
 
     >
       <Navbar />
-      <Header backgroundImage={Header_Background.src}
+      <Header backgroundImage="/images/Formations/Header_Background.webp"
         subtitle="Du goût, du plaisir et c'est servi"
         title={`  Maîtrisez [L’art]\n de la [cuisine] et de la [pâtisserie]`}
         greatVibes={greatVibes}
@@ -186,7 +180,7 @@ export default function Formations() {
         viewport={{ once: true }}
         variants={fadeRight}
       >
-        <Image src={tomat} alt="Tomate décorative" width={60} height={60} />
+        <Image src="/images/Formations/Patisserie/tomat.webp" alt="Tomate décorative" width={60} height={60} />
       </motion.div>
 
       <motion.div
@@ -198,7 +192,7 @@ export default function Formations() {
         transition={{ delay: 0.2 }}
       >
         <Image
-          src={Macaran}
+          src="/images/Formations/Patisserie/Macaran.webp"
           alt="Macaron décoratif"
           width={200}
           height={200}
@@ -208,7 +202,7 @@ export default function Formations() {
 
 
       <div style={{
-        backgroundImage: `url(${background_section.src})`,
+        backgroundImage: `url(/images/Formations/background_section.webp)`,
         backgroundSize: "contain",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat", // éviter que l'image se répète
@@ -283,7 +277,7 @@ export default function Formations() {
               >
                 <div className="md:w-1/2 w-full flex   justify-end ">
                   <Image
-                    src={`${API_BASE_URL}${formation.photo_formation[0]}`}
+                    src={`${process.env.NEXT_PUBLIC_API_URL}${formation.photo_formation[0]}`}
                     alt={formation.libelle_formation}
                     width={250}
                     height={800}
@@ -292,14 +286,14 @@ export default function Formations() {
                 </div>
                 <div className="md:w-1/2 w-full flex flex-col justify-around gap-4 pt-15 ">
                   <Image
-                    src={`${API_BASE_URL}${formation.photo_formation[1]}`}
+                    src={`${process.env.NEXT_PUBLIC_API_URL}${formation.photo_formation[1]}`}
                     alt={formation.libelle_formation}
                     width={250}
                     height={800}
                     className=" h-[170px] w-[240px] object-cover rounded-lg"
                   />
                   <Image
-                    src={`${API_BASE_URL}${formation.photo_formation[2]}`}
+                    src={`${process.env.NEXT_PUBLIC_API_URL}${formation.photo_formation[2]}`}
                     alt={formation.libelle_formation}
                     width={250}
                     height={800}

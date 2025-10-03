@@ -6,8 +6,7 @@ import Footer from "../../../components/common/Footer";
 import EventCard from "../../../components/common/EventCard";
 import { motion } from "framer-motion";
 
-import Background_Header from "../../../../public/images/Evenement/Background_Header.webp";
-import Background_Section from "../../../../public/images/Evenement/Background_Section.webp";
+ 
 
 import { greatVibes, poppins } from '../../../Styles/fonts/fonts';
 import Header from '@/components/common/Header';
@@ -18,7 +17,7 @@ export default function Evenement() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch('${url}/api/Evenements/Get_AllEvenements')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Evenements/Get_AllEvenements`)
       .then((res) => res.json())
       .then((data) => {
         const today = new Date();
@@ -67,7 +66,7 @@ export default function Evenement() {
 
       {/* Header */}
       <Header
-        backgroundImage={Background_Header.src}
+        backgroundImage="/images/Evenement/Background_Header.webp"
         subtitle="Moments Partagés"
         title="Découvrez nos [Événements]"
         path={"Évènement"}
@@ -82,7 +81,7 @@ export default function Evenement() {
       <section
         className="text-black pb-16 px-4 md:px-12"
         style={{
-          backgroundImage: `url(${Background_Section.src})`,
+          backgroundImage: `url(images/Evenement/Background_Section.webp)`,
           backgroundSize: "contain",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -98,7 +97,7 @@ export default function Evenement() {
           <div className="mt-16 mb-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-10 gap-x-8 px-6 mx-auto w-full text-center">
             {
 
-              events.map((event, index) => {
+              events.map((event, index) => (
                 <EventCard
                   key={event.id_Evenement}
                   status={getStatus(event.Date_Evenement)}
@@ -108,12 +107,12 @@ export default function Evenement() {
                   location="Restaurant Enis"
                   id_Event={event.id_Evenement}
                   imageUrl={event.photo_Evenement.length > 0
-                    ? "http://localhost:4000" + event.photo_Evenement[0]
-                    : Background_Header.src
+                    ? `${process.env.NEXT_PUBLIC_API_URL}` + event.photo_Evenement[0]
+                    : "/images/Evenement/Background_Section.webp"
                   }
                   delay={index * 0.15} // Stagger animation
                 />
-              })
+              ))
             }
           </div>
           {events.length === 0 && (

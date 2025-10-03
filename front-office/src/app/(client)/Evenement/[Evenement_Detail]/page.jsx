@@ -6,10 +6,7 @@ import FormReservationEvent from "../../../../components/form/FormReservationEve
 import { motion } from "framer-motion";
 import getScrollAnimation from "../../../../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "../../../../layout/ScrollAnimationWrapper";
-import Background_Header from "../../../../../public/images/Evenement/Background_Header.webp";
-import Background_Evenement_Detail from "../../../../../public/images/Evenement/Background_Evenement_Detail.webp";
-import Background_Section from "../../../../../public/images/Background_header.webp";
-import { greatVibes, poppins } from '../../../../Styles/fonts/fonts';
+  import { greatVibes, poppins } from '../../../../Styles/fonts/fonts';
 import Header from '@/components/common/Header';
 import { FaMapLocationDot } from 'react-icons/fa6';
 import { FaCalendarAlt, FaClock, FaPhoneAlt, FaUser, FaUsers } from 'react-icons/fa';
@@ -91,7 +88,7 @@ export default function Evenement_Detail() {
   useEffect(() => {
     if (!Evenement_Detail) return;
 
-    fetch(`${url}/api/Evenements/Get_spec_Evenement/${Evenement_Detail}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Evenements/Get_spec_Evenement/${Evenement_Detail}`)
       .then((res) => res.json())
       .then((data) => {
         if (data) {
@@ -133,7 +130,7 @@ export default function Evenement_Detail() {
 
 
 
-      const response = await fetch(`${url}/api/ReservationsEvent/Create_Reservation`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/ReservationsEvent/Create_Reservation`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -174,7 +171,7 @@ export default function Evenement_Detail() {
 
       {/* Section 1 - Header avec background */}
       <Header
-        backgroundImage={Background_Header.src}
+        backgroundImage="/images/Evenement/Background_Header.webp"
         subtitle="Instant Festif"
         title={`Soirée Exclusive – [${event.libelle_Evenement}]`}
         greatVibes={greatVibes}
@@ -191,7 +188,7 @@ export default function Evenement_Detail() {
       <section
         className="w-full text-black py-16 px-4 md:px-12"
         style={{
-          backgroundImage: `url(${Background_Evenement_Detail.src})`,
+          backgroundImage: `url(/images/Evenement/Background_Evenement_Detail.webp)`,
           backgroundSize: "contain",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat"
@@ -268,8 +265,8 @@ export default function Evenement_Detail() {
             <Image
               src={
                 event.photo_Evenement?.length > 0
-                  ? `http://localhost:4000${event.photo_Evenement[0]}`
-                  : Background_Header
+                  ? `${process.env.NEXT_PUBLIC_API_URL}${event.photo_Evenement[0]}`
+                  : "/images/Evenement/Background_Header.webp"
               }
               alt={"photo evenement"}
               width={600}
@@ -287,7 +284,7 @@ export default function Evenement_Detail() {
           className="w-full relative min-h-[350px] md:min-h-[500px] flex items-center justify-center p-10"
           ref={sectionRef}
           style={{
-            backgroundImage: `url(${Background_Section.src})`,
+            backgroundImage: `url(/images/Background_header.webp)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
 

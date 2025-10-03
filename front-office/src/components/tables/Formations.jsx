@@ -36,7 +36,7 @@ export default function Formation({ searchTerm = "", filterType = "" }) {
   useEffect(() => {
     const fetchFormations = async () => {
       try {
-        const response = await axios.get(`${url}/api/Formations/Get_AllFormations`);
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/Formations/Get_AllFormations`);
         setFormations(response.data);
       } catch (error) {
         console.error("Erreur lors du chargement des formations", error);
@@ -76,7 +76,7 @@ export default function Formation({ searchTerm = "", filterType = "" }) {
 
   const handleSave = async () => {
     try {
-      await axios.put(`${url}/api/Formations/Update_spec_Formation/${selectedFormation.id_formation}`, formData);
+      await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/Formations/Update_spec_Formation/${selectedFormation.id_formation}`, formData);
       setFormations(prev =>
         prev.map(f =>
           f.id_formation === selectedFormation.id_formation
@@ -146,7 +146,7 @@ export default function Formation({ searchTerm = "", filterType = "" }) {
                   <TableCell className="px-4 py-3">
                     <EditButton
                       id={formation.id}
-                      deleteUrl={`${url}/api/Formations/Delete_spec_Formation/${formation.id_formation}`}
+                      deleteUrl={`${process.env.NEXT_PUBLIC_API_URL}/api/Formations/Delete_spec_Formation/${formation.id_formation}`}
                       onDelete={() => setFormations(prev => prev.filter(f => f.id_formation !== formation.id_formation))}
                       showVoirPlusButton={true}
                       ShowDetailsButton={true}

@@ -1,13 +1,9 @@
 'use client';
 import { Navbar } from '@/components/common/Navbar'
 import React, { useState } from 'react'
-import Header_Background from "../../../../public/images/Formations/Header_Background.webp";
-import Epinard from "../../../../public/images/Contact/Epinard.webp";
-import Herbe from "../../../../public/images/Contact/Herbe.webp";
-import Pizza from "../../../../public/images/Contact/Pizza.webp";
+
 import Image from "next/image";
 import { motion } from "framer-motion";
-import background_section from "../../../../public/images/Formations/background_section.webp";
 
 import Header from '@/components/common/Header';
 import Footer from "../../../components/common/Footer";
@@ -94,7 +90,7 @@ export default function Contact() {
     formPayload.append("Sujet_Contact", formData.Sujet_Contact);
     formPayload.append("Message_Contact", formData.Message_Contact);
     try {
-      const res = await fetch(`${url}/api/Contact/Create_Contact`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Contact/Create_Contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -126,7 +122,7 @@ export default function Contact() {
 
       {/* Section 1 - Header avec background */}
       <Header
-        backgroundImage={Header_Background.src}
+        backgroundImage="/images/Formations/Header_Background.webp"
         subtitle="Saveurs Uniques"
         title={`A votre [écoute]\n pour mieux vous [servir]`}
         greatVibes={greatVibes}
@@ -142,11 +138,11 @@ export default function Contact() {
       {/* Section 1 - contact formulaire */}
 
       <div className=" py-12" style={{
-        backgroundImage: `url(${background_section.src})`,
+        backgroundImage: `url(/images/Formations/background_section.webp)`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat", // éviter que l'image se répète
-loading:"lazy"
+        loading: "lazy"
 
       }}>
         <section
@@ -196,7 +192,7 @@ loading:"lazy"
                   </ul>
                 </div>
                 <div className='md:w-1/4   flex justify-center'>
-                  <Image src={Epinard} alt="Epinard décorative" className='object-contain' loading="lazy" width={170} height={170} />
+                  <Image src="/images/Contact/Epinard.webp" alt="Epinard décorative" className='object-contain' loading="lazy" width={170} height={170} />
                 </div>
               </div>
 
@@ -278,7 +274,7 @@ loading:"lazy"
                     </button>
                   </div>
 
-               
+
                 </form>
               </div>
             </motion.div>
@@ -303,12 +299,12 @@ loading:"lazy"
             <div
               className="w-full md:w-5/6 border-2 my-2 md:my-6 border-gray-300/90 rounded-3xl p-5 "
               style={{
-                backgroundImage: `url(${Herbe.src}), url(${Pizza.src})`,
+                backgroundImage: `url(/images/Contact/Herbe.webp), url(/images/Contact/Pizza.webp)`,
                 backgroundSize: "18%, 18%",
                 backgroundPosition: "left top, bottom right",
                 backgroundRepeat: "no-repeat, no-repeat",
                 backgroundOrigin: "content-box",
-                loading:"lazy"
+                loading: "lazy"
               }}
             >
               {/* Titre */}
