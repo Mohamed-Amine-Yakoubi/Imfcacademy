@@ -81,7 +81,7 @@ export default function Evenement() {
       <section
         className="text-black pb-16 px-4 md:px-12"
         style={{
-          backgroundImage: `url(images/Evenement/Background_Section.webp)`,
+          backgroundImage: `url(/images/Evenement/Background_Section.webp)`,
           backgroundSize: "contain",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

@@ -7,9 +7,7 @@ import SessionWrapper from './SessionWrapper';
 export const metadata = {
   title: 'Enis',
   description: 'Description du site',
-  icons: {
-    icon: '/favicon.ico',
-  },
+  
 };
 
 export default function RootLayout({ children }) {

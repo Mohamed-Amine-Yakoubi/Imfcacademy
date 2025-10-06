@@ -183,22 +183,25 @@ export default function Formations() {
         <Image src="/images/Formations/Patisserie/tomat.webp" alt="Tomate décorative" width={60} height={60} />
       </motion.div>
 
-      <motion.div
-        className="hidden md:block absolute top-150 right-0 w-[150px] h-[200px] overflow-hidden z-20"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeLeft}
-        transition={{ delay: 0.2 }}
+      <div
+        className="hidden md:block absolute top-150 right-0   overflow-hidden z-20"
+ 
       >
-        <Image
-          src="/images/Formations/Patisserie/Macaran.webp"
-          alt="Macaron décoratif"
-          width={200}
-          height={200}
-          className="object-cover object-left relative -right-[50px]"
-        />
-      </motion.div>
+   <motion.div
+    className="relative w-[100px] h-[150px]"
+    initial={{ x: 80, opacity: 0 }}
+    whileInView={{ x: 0, opacity: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+  >
+    <Image
+      src="/images/Formations/Patisserie/Macaran.webp"
+      alt="Macaron décoratif"
+      fill
+      className="object-cover object-left"
+    />
+  </motion.div>
+      </div>
 
 
       <div style={{

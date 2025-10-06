@@ -2,7 +2,7 @@
 
 import { Navbar } from '@/components/common/Navbar';
 import React from 'react';
- 
+
 
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
@@ -42,18 +42,18 @@ const fadeLeft = {
 };
 // Images avec catégorie
 const images = [
-  {alt:" photo_1", src: '/images/Gallerie/photo_1.webp', category: "Restaurant" },
-  {alt:" photo_2", src: '/images/Gallerie/photo_2.webp', category: "Restaurant" },
-  {alt:" photo_3", src: '/images/Gallerie/photo_3.webp', category: "Restaurant" },
-  {alt:" photo_4", src: '/images/Gallerie/photo_4.webp', category: "Restaurant" },
-  {alt:" photo_5", src: '/images/Gallerie/photo_5.webp', category: "Restaurant" },
-  {alt:" photo_6", src: '/images/Gallerie/photo_6.webp', category: "Restaurant" },
-  {alt:" photo_7", src: '/images/Gallerie/photo_7.webp', category: "Évènement" },
-  {alt:" photo_8", src: '/images/Gallerie/photo_8.webp', category: "Évènement" },
-  {alt:" photo_9", src: '/images/Gallerie/photo_9.webp', category: "Évènement" },
-  { alt:"photo_10", src: '/images/Gallerie/photo_10.webp', category: "Évènement" },
-  { alt:"photo_11", src: '/images/Gallerie/photo_11.webp', category: "Évènement" },
-  { alt:"photo_12", src: '/images/Gallerie/photo_12.webp', category: "Évènement" },
+  { alt: " photo_1", src: '/images/Gallerie/photo_1.webp', category: "Restaurant" },
+  { alt: " photo_2", src: '/images/Gallerie/photo_2.webp', category: "Restaurant" },
+  { alt: " photo_3", src: '/images/Gallerie/photo_3.webp', category: "Restaurant" },
+  { alt: " photo_4", src: '/images/Gallerie/photo_4.webp', category: "Restaurant" },
+  { alt: " photo_5", src: '/images/Gallerie/photo_5.webp', category: "Restaurant" },
+  { alt: " photo_6", src: '/images/Gallerie/photo_6.webp', category: "Restaurant" },
+  { alt: " photo_7", src: '/images/Gallerie/photo_7.webp', category: "Évènement" },
+  { alt: " photo_8", src: '/images/Gallerie/photo_8.webp', category: "Évènement" },
+  { alt: " photo_9", src: '/images/Gallerie/photo_9.webp', category: "Évènement" },
+  { alt: "photo_10", src: '/images/Gallerie/photo_10.webp', category: "Évènement" },
+  { alt: "photo_11", src: '/images/Gallerie/photo_11.webp', category: "Évènement" },
+  { alt: "photo_12", src: '/images/Gallerie/photo_12.webp', category: "Évènement" },
 
 
 
@@ -140,40 +140,42 @@ export default function Galerie() {
             />
           </motion.div>
 
-       {/* Ici on entoure par AnimatePresence */}
-{filteredImages.length > 0 ? (
-  <AnimatePresence mode="wait">
-    <div
-      key={selectedCategory}
-      className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1 m-4"
-    >
-      {filteredImages.map((img, idx) => (
-        <motion.div
-          key={idx}
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.9 }}
-          transition={{ duration: 0.3 }}
-          className="relative w-full h-[250px]"
-        >
-          <Image
-            src={img.src}
-            alt={img.alt ?? `Image ${idx + 1}`}
-            fill
-            loading="lazy"
-            className="object-cover transform group-hover:scale-105 transition duration-300"
-          />
-        </motion.div>
-      ))}
-    </div>
-  </AnimatePresence>
-) : (
-  <div className="flex justify-center items-center my-22 mb-56">
-    <p className="text-black/50 font-medium text-[20px] text-center">
-      Les photos seront bientôt disponibles. Restez connectés !
-    </p>
-  </div>
-)}
+          {/* Ici on entoure par AnimatePresence */}
+          {filteredImages.length > 0 ? (
+            <AnimatePresence mode="wait">
+              <div
+                key={selectedCategory}
+                className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1 m-4"
+              >
+                {filteredImages.map((img, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.3 }}
+                    className="relative w-full h-[250px]"
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.alt ?? `Image ${idx + 1}`}
+                      fill
+                      loading="lazy"
+                      width={400}
+                      height={400}
+                      className="object-cover transform group-hover:scale-105 transition duration-300"
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </AnimatePresence>
+          ) : (
+            <div className="flex justify-center items-center my-22 mb-56">
+              <p className="text-black/50 font-medium text-[20px] text-center">
+                Les photos seront bientôt disponibles. Restez connectés !
+              </p>
+            </div>
+          )}
 
         </section>
       </div>
