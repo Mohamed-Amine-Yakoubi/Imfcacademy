@@ -1,8 +1,7 @@
 "use client";
  
-import Logo_enis from "../../../../public/images/logo/Logo_enis.png";
-
-import { Bar, Doughnut, Line } from "react-chartjs-2";
+ 
+ 
 import {
   Chart as ChartJS,
   CategoryScale,

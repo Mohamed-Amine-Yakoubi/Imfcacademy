@@ -22,7 +22,7 @@ const Menu_item = [
   { src: "/images/Menu_restaurant/Pate.webp", label: 'Pate', Specialite: "Pate" },
   { src: "/images/Menu_restaurant/Pizza.webp", label: 'Pizza', Specialite: "Pizza" },
   { src: "/images/Menu_restaurant/Salade.webp", label: 'Salade', Specialite: "Salade" },
-  { src: "/images/Menu_restaurant/Sandwichs.webp", label: 'Plat', Specialite: "Plat" },
+  { src: "/images/Menu_restaurant/Plats.webp", label: 'Plat', Specialite: "Plat" },
   { src: "/images/Menu_restaurant/Sandwichs.webp", label: 'Sandwichs', Specialite: "Sandwichs" },
   { src: "/images/Menu_restaurant/Soupe.webp", label: 'Soupe', Specialite: "Soupe" }
 ];

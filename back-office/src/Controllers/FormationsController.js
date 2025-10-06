@@ -8,20 +8,20 @@ exports.Create_Formation = asyncHandler(async (req, res) => {
     const {
       libelle_formation,
       modules_enseignes,
-     prix_formation,
+      prix_formation,
       type_formation,
       Date_Debut,
       Date_Fin,
     } = req.body;
-const photoPaths = req.files.map(file => file.publicPath);
+    const photoPaths = req.files.map((file) => file.publicPath);
 
     const Formations = await FormationModel.create({
       libelle_formation,
       modules_enseignes,
       prix_formation,
-           photo_formation:photoPaths,
+      photo_formation: photoPaths,
       type_formation,
-           Date_Debut,
+      Date_Debut,
       Date_Fin,
     });
 
@@ -99,29 +99,32 @@ exports.Update_spec_Formation = asyncHandler(async (req, res) => {
       modules_enseignes,
       prix_formation,
       type_formation,
-           Date_Debut,
+      Date_Debut,
       Date_Fin,
     } = req.body;
 
     // Récupérer la formation existante
     const formation = await FormationModel.findByPk(id_formation);
     if (!formation) {
-      return res.status(404).json({ message: `Formation with ID ${id_formation} not found` });
+      return res
+        .status(404)
+        .json({ message: `Formation with ID ${id_formation} not found` });
     }
 
     // Gestion photos : garder les anciennes si pas de nouvelles uploadées
-    const photoPaths = (req.files || []).map(file =>
+    const photoPaths = (req.files || []).map((file) =>
       file.path.replace(/\\/g, "/").replace(/^src\//, "")
     );
-   const photo_formation = photoPaths.length > 0 ? photoPaths : formation.photo_formation;
+    const photo_formation =
+      photoPaths.length > 0 ? photoPaths : formation.photo_formation;
 
     const updateFields = {
       libelle_formation,
       modules_enseignes,
       photo_formation,
       type_formation,
-           Date_Debut,
-           prix_formation,
+      Date_Debut,
+      prix_formation,
       Date_Fin,
     };
 

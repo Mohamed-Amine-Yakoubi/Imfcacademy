@@ -1,18 +1,18 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-import logo_Enis from "../../../public/images/logo_Enis.webp";
+
 import { IoClose, IoMenu } from "react-icons/io5";
 import Link from "next/link";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { FaFacebook, FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { TbBrandWhatsappFilled } from "react-icons/tb";
 import { usePathname } from "next/navigation";
 import FormReservation from "../form/FormReservation";
 import { greatVibes, poppins } from "@/Styles/fonts/fonts";
 
-import Background_header from "../../../public/images/Réservation_background.webp";
+
 
 
 // Variants d’animation fade + slide up
@@ -153,9 +153,11 @@ export const Navbar = () => {
                 className={`transition-all duration-300 max-w-full h-auto
                   ${isMenuOpen ? "hidden md:block" : ""}
                   ${isScrolled ? "w-[50px] md:w-[65px] p-1" : "w-[60px] md:w-[100px]"}`}
-                src={logo_Enis}
+                src="/images/logo_Enis.webp"
                 alt="logo_Enis de Enis"
                 loading="lazy"
+                width={450}
+                height={450}
               />
             </Link>
           </motion.div>
@@ -247,7 +249,9 @@ export const Navbar = () => {
               <Link href="/">
                 <Image
                   className="w-[120px]"
-                  src={logo_Enis}
+                  src="/images/logo_Enis.webp"
+                  width={450}
+                  height={450}
                   alt="logo_Enis de Enis"
                   loading="lazy"
                 />
@@ -321,12 +325,12 @@ export const Navbar = () => {
                 <div className="  h-[0.3px] w-22 mx-5 bg-white/50" />
 
                 {/* Social Icons */}
-              <div    className="  flex flex-row space-x-5 justify-center items-center "
-           >
+                <div className="  flex flex-row space-x-5 justify-center items-center "
+                >
                   <FaFacebook className="text-white text-[22px] hover:scale-110 transition" />
                   <TbBrandWhatsappFilled className="yellow_color text-[27px] hover:scale-110 transition" />
                   <FaInstagram className="text-white text-[22px] hover:scale-110 transition" />
-               </div>
+                </div>
                 {/* Bottom vertical line (visible on desktop only) */}
                 <div className="  h-[0.3px] w-22 mx-5 bg-white/50" />
 
@@ -372,8 +376,10 @@ export const Navbar = () => {
                 {/* Image Section (30%) */}
                 <div className="md:w-[30%] w-full object-cover md:h-full h-[20%]">
                   <Image
-                    src={Background_header}
+                    src="/images/Réservation_background.webp"
                     alt="image"
+                    width={450}
+                    height={450}
                     className="object-cover  w-full h-full"
                   />
                 </div>

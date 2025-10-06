@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
-import Logo_Footer from "../../../public/images/Logo_Footer.webp";
-import Persil from "../../../public/images/Persil.webp";
+ 
+ 
 import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
  
  
@@ -19,7 +19,7 @@ const Footer = () => {
       {/* Background image */}
       <div className="absolute md:mt-42 mt-80 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 opacity-5 pointer-events-none">
         <Image
-          src={Logo_Footer}
+          src="/images/Logo_Footer.webp"
           alt="Logo Footer Background"
           width={450}
           height={450}
@@ -29,7 +29,7 @@ const Footer = () => {
       {/* Decorative image (hidden on mobile) */}
       <div className="hidden md:block absolute bottom-35 left-0 md:w-[400px] md:h-[400px] w-[300px] h-[400px] overflow-hidden lg:z-50 -z-10">
         <Image
-          src={Persil}
+          src="/images/Persil.webp"
           alt="Persil décoratif"
           width={380}
           height={380}
@@ -110,7 +110,7 @@ const Footer = () => {
                 <Link
                   key={index}
                   href="#"
-                  className="flex h-9 w-9 items-center justify-center rounded-full  -stroke text-dark hover:bg-primary hover:text-white dark:-dark-3 dark:text-white"
+                  className="flex h-9 w-9 items-center justify-center rounded-full  -stroke text-dark hover:bg-primary hover:text-green-500 dark:-dark-3 dark:text-white"
                 >
                   <Icon />
                 </Link>

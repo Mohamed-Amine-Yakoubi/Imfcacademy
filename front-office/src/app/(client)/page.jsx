@@ -114,7 +114,7 @@ const Accueil = () => {
       <div className="max-w-screen-2xl pt-20 mx-auto md:mx-8 px-4  overflow-hidden  ">
         <ScrollAnimationWrapper>
           <motion.div
-            className="   grid grid-flow-row md:grid-flow-col grid-rows-2 md:grid-rows-1 py-6 md:py-10 items-center justify-items-center text-center md:text-left grid-cols-1 md:grid-cols-[40px_1fr_1fr] gap-4 md:gap-8"
+            className="   grid grid-flow-row md:grid-flow-col grid-rows-2 md:grid-rows-1 py-6 md:py-10 items-center justify-items-center text-center md:text-left grid-cols-1 md:grid-cols-[40px_1fr_1fr] gap-0 md:gap-8"
 
             variants={scrollAnimation}
           >
@@ -263,6 +263,8 @@ const Accueil = () => {
                   <Image
                     src="/images/Réservation_background.webp"
                     alt="image"
+                           width={400}
+                    height={400}
                     className="object-cover  w-full h-full"
                   />
                 </div>

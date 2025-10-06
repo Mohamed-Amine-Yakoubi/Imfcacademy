@@ -2,8 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { ArrowRightIcon } from '@/icons';
-import { FaArrowLeft } from 'react-icons/fa';
+ 
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
   // <- icons
 

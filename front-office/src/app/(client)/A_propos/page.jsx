@@ -364,7 +364,7 @@ export default function A_propos() {
       <section
         className="w-full relative min-h-[400px] md:min-h-[550px] flex items-center justify-center p-10"
         style={{
-      backgroundImage: "url('/images/A_propos/Background_Section.webp')",
+          backgroundImage: "url(/images/A_propos/Background_Section.webp)",
 
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -462,17 +462,17 @@ export default function A_propos() {
 
 
       <section className="text-black py-16 px-4 md:px-12 mt-15"
- 
-      style={{
- 
-     backgroundImage: "url('/images/A_propos/Background_Service.webp')",
 
-        backgroundSize: "contain",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat", // éviter que l'image se répète
+        style={{
+
+          backgroundImage: "url(/images/A_propos/Background_Service.webp)",
+
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat", // éviter que l'image se répète
 
 
-      }}>
+        }}>
         <div className="max-w-screen-xl mx-auto px-4 z-10 flex flex-col items-center justify-center text-white text-center h-full  ">
           {/* Partie gauche (Images) */}
           <motion.div
@@ -634,6 +634,8 @@ export default function A_propos() {
                   <Image
                     src="/images/Réservation_background.webp"
                     alt="image"
+                    width={450}
+                    height={450}
                     className="object-cover  w-full h-full"
                   />
                 </div>
