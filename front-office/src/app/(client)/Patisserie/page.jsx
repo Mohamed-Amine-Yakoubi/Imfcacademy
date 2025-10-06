@@ -538,7 +538,7 @@ const [openIndex, setOpenIndex] = useState(null); // null = aucun ouvert
               {/* Image Section */}
               <div className="flex justify-center  items-center flex-shrink-0  ">
                 <Image
-                  src="/images/Menu_patisserie/Tapas & Charcuterie.webp"
+                  src="/images/Menu_patisserie/Tapas_Charcuterie.webp"
                   alt="photo Tapas & Charcuterie"
                   width={300}
                   height={300}
