@@ -29,21 +29,17 @@ export default function Evenement({ events = [], searchTerm = "", filterType = "
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [detailsevenement, setDetailsevenement] = useState(null);
 
-  useEffect(() => {
-    if (events.length > 0) {
-      setEvenements(events);
-    } else {
-      const fetchevenements = async () => {
-        try {
-           const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/evenements/Get_AllEvenements`);
-          setEvenements(response.data);
-        } catch (error) {
-          console.error("Erreur lors du chargement des événements", error);
-        }
-      };
-      fetchevenements();
+useEffect(() => {
+  const fetchevenements = async () => {
+    try {
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/evenements/Get_AllEvenements`);
+      setEvenements(response.data);
+    } catch (error) {
+      console.error("Erreur lors du chargement des événements", error);
     }
-  }, [events]);
+  };
+  fetchevenements();
+}, []); 
 
   // -----------------------------
   // Helper to get status of an event

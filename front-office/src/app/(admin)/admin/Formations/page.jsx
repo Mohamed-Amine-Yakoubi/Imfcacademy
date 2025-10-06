@@ -21,7 +21,7 @@ export default function Tables_Formation() {
     description: "",
     dateDebut: "",
     dateFin: "",
-    prix:"",
+    prix: "",
     images: null,
   });
   const handleSave = async () => {
@@ -33,11 +33,11 @@ export default function Tables_Formation() {
       formPayload.append("Date_Debut", formData.dateDebut);
       formPayload.append("prix_formation", formData.dateDebut);
       formPayload.append("Date_Fin", formData.dateFin);
-    if (formData.images && formData.images.length > 0) {
-      formData.images.forEach(file => {
-        formPayload.append("photo_formation", file);
-      });
-    }
+      if (formData.images && formData.images.length > 0) {
+        formData.images.forEach(file => {
+          formPayload.append("photo_formation", file);
+        });
+      }
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/api/Formations/Create_Formation`,
         {
@@ -47,7 +47,7 @@ export default function Tables_Formation() {
       );
 
       if (!response.ok) {
-        throw new Error("Erreur lors de la création de la formation");
+        console.log("Erreur lors de la création de la formation",response);
       }
 
       const data = await response.json();
@@ -60,7 +60,7 @@ export default function Tables_Formation() {
         description: "",
         dateDebut: "",
         dateFin: "",
-        prix:"",
+        prix: "",
         images: null,
       });
 
@@ -83,8 +83,8 @@ export default function Tables_Formation() {
           onSave={handleSave}
           onSearch={handleSearch}
           onFilterChange={handleFilterChange}
- 
-          filterOptions={[ 
+
+          filterOptions={[
             { value: "Aide Pâtisserie", label: "Aide Pâtisserie" },
             { value: "Aide Cuisinier", label: "Aide Cuisinier" },
             { value: "Agent de Réception et Accueil", label: "Agent de Réception et Accueil" },
