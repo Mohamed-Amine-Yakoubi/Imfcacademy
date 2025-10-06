@@ -65,7 +65,7 @@ export default function login() {
     >
       <div className="absolute inset-0 bg-black opacity-40"></div>
       <div className="relative w-96 h-[500px] rounded-md flex flex-col items-center justify-center bg-white shadow">
-        <Image src="/images/logo/Logo_enis.png" alt="logo"     width={200} height={200} className="w-[100px]" />
+        <Image src="/images/logo_Enis.webp" alt="logo"     width={200} height={200} className="w-[100px]" />
         <form
           className="mt-16 mb-2 mx-auto w-80 max-w-screen-lg"
           onSubmit={handleSubmit}
