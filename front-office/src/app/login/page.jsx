@@ -61,7 +61,7 @@ export default function login() {
   return (
     <div
       className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: `url(/images/Background_SignIn1.jpg)` }}
+      style={{ backgroundImage: `url(/images/Background_header_2.webp)` }}
     >
       <div className="absolute inset-0 bg-black opacity-40"></div>
       <div className="relative w-96 h-[500px] rounded-md flex flex-col items-center justify-center bg-white shadow">
