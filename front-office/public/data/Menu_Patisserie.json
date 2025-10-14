@@ -6,7 +6,6 @@
         "Description_Menu": "",
         "Prix_Menu_Solo": 3000,
         "Type_Menu": "patisserie",
-        
         "Categorie": "Crêpes",
         "Specialite": "Crêpes sucrées"
     },
@@ -514,12 +513,16 @@
         "Type_Menu": "patisserie",
         "Specialite": "Boissons chaudes"
     },
- 
     {
         "photo_Menu": "/images/Menu_patisserie/Formule Classique.webp",
         "id_Menu": 180,
         "Libelle_Menu": "Formule Classique",
-        "Description_Menu": ["Comprend 1 café au choix", "1 viennoiserie", "1 jus frais au choix"," 1 bouteille d’eau"],
+        "Description_Menu": [
+            "1 café au choix",
+            "1 viennoiserie",
+            "1 jus frais au choix",
+            " 1 bouteille d’eau"
+        ],
         "Prix_Menu_Solo": 5000,
         "Prix_Menu_Duo": 4000,
         "Type_Menu": "patisserie",
@@ -529,8 +532,16 @@
         "photo_Menu": "/images/Menu_patisserie/Formule Gourmande.webp",
         "id_Menu": 181,
         "Libelle_Menu": "Formule Gourmande",
-        "Description_Menu": ["Comprend 1 boisson chaude au choix"," 1 jus frais au choix"," pain beurré avec confiture"," charcuterie", "1 crêpe sucrée ou un gaufre"," omelette", "et avocado toast"],
-         "Prix_Menu_Solo": 5000,
+        "Description_Menu": [
+            "1 boisson chaude au choix",
+            " 1 jus frais au choix",
+            " pain beurré avec confiture",
+            " charcuterie",
+            "1 crêpe sucrée ou un gaufre",
+            " omelette",
+            "avocado toast"
+        ],
+        "Prix_Menu_Solo": 5000,
         "Prix_Menu_Duo": 4000,
         "Type_Menu": "patisserie",
         "Specialite": "Petit déjeuner"
@@ -539,8 +550,38 @@
         "photo_Menu": "/images/Menu_patisserie/Formule Ivoirienne.webp",
         "id_Menu": 182,
         "Libelle_Menu": "Formule Ivoirienne",
-        "Description_Menu": ["Comprend 1 boisson chaude au choix"," 1 jus frais au choix"," pain beurré avec confiture"," charcuterie "," 1 crêpe sucrée ou un gaufre","bouillie"," alloco œuf"],
-         "Prix_Menu_Solo": 5000,
+        "Description_Menu": [
+            "Café au choix",
+            "Jus frais au choix",
+            " pain beurré",
+            "Bouteille d’eau",
+            "bouillie",
+            " alloco œuf"
+        ],
+        "Prix_Menu_Solo": 5000,
+        "Prix_Menu_Duo": 4000,
+        "Type_Menu": "patisserie",
+        "Specialite": "Petit déjeuner"
+    },
+    {
+        "photo_Menu": "/images/Menu_patisserie/Formule Ivoirienne.webp",
+        "id_Menu": 253,
+        "Libelle_Menu": "Formule brunch Enis ( Duo )",
+        "Description_Menu": [
+            "2 cafés au choix",
+            "2 jus au choix",
+            "2 bouteilles d’eau",
+            "pancakes",
+            "2 œufs bénédicte",
+            "2 toasts à l’avocat",
+            "viennoiseries",
+            "charcuterie",
+            "miel",
+            "yaourt aux fruits",
+            "beurre",
+            "confiture Nutella"
+        ],
+        "Prix_Menu_Solo": 5000,
         "Prix_Menu_Duo": 4000,
         "Type_Menu": "patisserie",
         "Specialite": "Petit déjeuner"
@@ -549,21 +590,20 @@
         "photo_Menu": null,
         "id_Menu": 183,
         "Libelle_Menu": "Cheese box",
-        "Description_Menu": "Cheddar Affiné , Reblochon Artisanal , Tomme Au Pesto & Pignon , Gambas Marinées , Chorizo Grillé , Mini Boulettes Kefta Crottin Cendré , Crottin Cendré , Tapenade D’Olives Noires , Fruits Secs & Biscuits Salés" ,
+        "Description_Menu": "Cheddar Affiné , Reblochon Artisanal , Tomme Au Pesto & Pignon , Gambas Marinées , Chorizo Grillé , Mini Boulettes Kefta Crottin Cendré , Crottin Cendré , Tapenade D’Olives Noires , Fruits Secs & Biscuits Salés",
         "Prix_Menu_Solo": 1500,
         "Type_Menu": "patisserie",
-        "Specialite": "Cheese box" 
+        "Specialite": "Cheese box"
     },
-       {
+    {
         "photo_Menu": null,
         "id_Menu": 184,
         "Libelle_Menu": "Box le gourmet",
         "Description_Menu": "Mozzarelline , Jambon De Dinde Farcie , Gouda Jeune , Gruyère , Roquefort , Fruits Secs , Brochettes Poulet , Brochettes Poulet , Fruits Frais , Chevrette Piquante , Rouleaux De Fromage , Houmous & Pain Grillé",
         "Prix_Menu_Solo": 1500,
         "Type_Menu": "patisserie",
-        "Specialite": "Box le gourmet" 
+        "Specialite": "Box le gourmet"
     },
- 
     {
         "photo_Menu": null,
         "id_Menu": 195,
@@ -573,7 +613,6 @@
         "Type_Menu": "patisserie",
         "Specialite": "Box orientale"
     },
-    
     {
         "photo_Menu": null,
         "id_Menu": 214,
@@ -772,7 +811,6 @@
         "Type_Menu": "patisserie",
         "Specialite": "Tapas"
     },
-   
     {
         "photo_Menu": null,
         "id_Menu": 236,
@@ -917,6 +955,4 @@
         "Type_Menu": "patisserie",
         "Specialite": "Jus"
     }
- 
-
 ]

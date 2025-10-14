@@ -17,7 +17,7 @@ import Section_titles from '../../../components/common/Section_titles';
 
 const Menu_item = [
   { src: "/images/Menu_restaurant/Burger.webp", label: 'Burger', Specialite: "Burger" },
-  { src: "/images/Menu_restaurant/Entrées_libanaises.webp", label: 'Entrées libanaises', Specialite: "Entrées libanaises" },
+  { src: "/images/Menu_restaurant/Entrées_libanaises.webp", label: 'Entrées', Specialite: "Entrées" },
   { src: "/images/Menu_restaurant/Griallades.webp", label: 'Grillades', Specialite: "Grillades" },
   { src: "/images/Menu_restaurant/Pate.webp", label: 'Pate', Specialite: "Pate" },
   { src: "/images/Menu_restaurant/Pizza.webp", label: 'Pizza', Specialite: "Pizza" },
@@ -31,7 +31,7 @@ const plats_Composes = [
   { img: "/images/Menu_restaurant/Volailles.webp", Specialite: "Volailles" },
   { img: "/images/Menu_restaurant/Viande_rouge.webp", Specialite: "Viandes rouges" },
 
-  { img: "/images/Menu_restaurant/Lapin.webp", Specialite: "Lapin" },
+  
   { img: "/images/Menu_restaurant/Poisson.webp", Specialite: "Poisson" },
   { img: "/images/Menu_restaurant/Fruits_de_mer.webp", Specialite: "Fruits de mer" },
 ]

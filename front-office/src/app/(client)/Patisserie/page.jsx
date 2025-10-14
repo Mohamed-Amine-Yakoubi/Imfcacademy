@@ -10,8 +10,8 @@ import Footer from "../../../components/common/Footer";
 import Menu_link from '../../../components/common/Menu_link';
 import Section_titles from '../../../components/common/Section_titles';
 
- 
- 
+
+
 
 import ScrollAnimationWrapper from '@/layout/ScrollAnimationWrapper';
 
@@ -32,7 +32,7 @@ const Menu_item = [
     category: "Liquides & Boissons",
     items: [
       // { src: Glace, label: "Glaces", Specialite: "Glaces" },
-      { src:  "/images/Menu_patisserie/Milkshakes.webp", label: "Milkshakes", Specialite: "Milkshakes" },
+      { src: "/images/Menu_patisserie/Milkshakes.webp", label: "Milkshakes", Specialite: "Milkshakes" },
       { src: "/images/Menu_patisserie/Jus.webp", label: "Jus", Specialite: "Jus" },
       { src: "/images/Menu_patisserie/Cocktails_Fruits.webp", label: "Cocktail de fruits", Specialite: "Cocktail de fruits" },
       { src: "/images/Menu_patisserie/Boissons.webp", label: "Boissons chaudes", Specialite: "Boissons chaudes" },
@@ -69,8 +69,8 @@ const fadeUp = {
 export default function Patisserie() {
   const [menuItems, setMenuItems] = useState([]);
   const [showMenu, setShowMenu] = useState(false);
-const [openIndex, setOpenIndex] = useState(null); // null = aucun ouvert
-   // États séparés pour chaque section
+  const [openIndex, setOpenIndex] = useState(null); // null = aucun ouvert
+  // États séparés pour chaque section
   const [activeSpecialiteSucre, setActiveSpecialiteSucre] = useState("");
   const [activeSpecialiteImg, setActiveSpecialiteImg] = useState(null);
 
@@ -613,90 +613,90 @@ const [openIndex, setOpenIndex] = useState(null); // null = aucun ouvert
         />
 
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto p-6 my-12">
+      <div className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto p-6 my-12 transition-all duration-500">
   {petitDejItems.map((item, i) => {
-    const isOpen = openIndex === i; // true si cette carte est ouverte
+    const isOpen = openIndex === i;
 
     return (
-    <div
-  key={i}
-  className="relative w-full max-w-xs lg:max-w-md mx-auto rounded-md overflow-hidden shadow-lg"
->
-  <Image
-    src={item.img || "/images/Formations/Header_Background.webp"}
-    alt={item.name}
-    width={400}
-    height={500}
-    className="w-full h-[450px] object-cover transition-transform duration-500 hover:scale-105"
-  />
+      <div
+        key={i}
+        className={`relative overflow-hidden shadow-lg rounded-md transition-all duration-500
+          ${isOpen ? "w-[380px]" : "w-[250px] opacity-80"}`}
+      >
+        <Image
+          src={item.img || "/images/Formations/Header_Background.webp"}
+          alt={item.name}
+          width={400}
+          height={500}
+          className="w-full h-[450px] object-cover"
+        />
 
-  {/* Overlay texte */}
-  <div
-    className={`absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-white text-center p-4 transition-all duration-500
-      ${isOpen ? "backdrop-blur-[3px]" : ""}`}
-  >
-    <div className="border-2 border-white rounded-lg w-full h-full flex flex-col justify-center items-center p-4">
-
-      <h2 className={`${greatVibes.className} lg:text-[40px] md:text-[35px] text-[32px] font-bold leading-[40px]`}>
-        {item.name}
-      </h2>
-
-      {/* Bouton mobile & desktop */}
-      {!isOpen && (
-        <button
-          className="mt-4 px-4 py-2 border-2 border-white text-white rounded hover:bg-gray-200 hover:text-black transition lg:block"
-          onClick={() => setOpenIndex(i)}
+        {/* Overlay texte */}
+        <div
+          className={`absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-white text-center p-4 transition-all duration-500
+            ${isOpen ? "backdrop-blur-[3px]" : ""}`}
         >
-          Voir le menu
-        </button>
-      )}
+          <div className="border-2 border-white rounded-lg w-full h-full flex flex-col justify-center items-center p-4">
+            <h2 className={`${greatVibes.className} lg:text-[40px] md:text-[35px] text-[32px] font-bold leading-[40px]`}>
+              {item.name}
+            </h2>
 
-      {/* Contenu description & prix uniquement si ouvert */}
-      {isOpen && (
-        <div className="mt-2 transition-all duration-500 w-full">
-          {Array.isArray(item.desc) ? (
-            <ul className="mt-2 space-y-1 lg:text-[15px] text-[13px]">
-              {item.desc.map((d, idx) => (
-                <li key={idx}>- {d}</li>
-              ))}
-            </ul>
-          ) : (
-            <p className="mt-2 lg:text-[15px] text-[13px]  ">{item.desc}</p>
-          )}
+            {!isOpen && (
+              <button
+                className="mt-4 px-4 py-2 border-2 border-white text-white rounded hover:bg-gray-200 hover:text-black transition"
+                onClick={() => setOpenIndex(i)}
+              >
+                Voir le menu
+              </button>
+            )}
 
-          <div className="flex  lg:flex-row flex-col mt-5 items-center justify-center gap-1  ">
-            <div className="relative inline-block py-4 w-1/2 sm:w-[150px]">
-              <Image
-                src="/images/brush.webp"
-                alt="brush"
-                width={500}
-                height={500}
-                className="absolute inset-0 w-full h-full transform scale-x-[-1]"
-              />
-              <span className=" lg:text-[15px] text-[13px] relative block w-full text-center text-white font-medium">
-                Solo : {item.price || "—"}
-              </span>
-            </div>
+            {isOpen && (
+              <div className="mt-2 transition-all duration-500 w-full">
+              {Array.isArray(item.desc) ? (
+  <ul
+    className={`mt-2 lg:text-[15px] text-[13px] transition-all duration-500 
+      ${item.desc.length > 7 ? "grid grid-cols-2 gap-x-4 space-y-0" : "space-y-1"}`}
+  >
+    {item.desc.map((d, idx) => (
+      <li key={idx}>- {d}</li>
+    ))}
+  </ul>
+) : (
+  <p className="mt-2 lg:text-[15px] text-[13px]">{item.desc}</p>
+)}
 
-            <div className="relative inline-block py-4 w-1/2 sm:w-[150px]">
-              <Image
-                src="/images/brush.webp"
-                alt="brush"
-                width={500}
-                height={500}
-                className="absolute inset-0 w-full h-full"
-              />
-              <span className=" lg:text-[15px] text-[13px] relative block w-full text-center text-white font-medium">
-                Duo : {item.price_duo || "—"}
-              </span>
-            </div>
+                <div className="flex lg:flex-row flex-col mt-5 items-center justify-center gap-1">
+                  <div className="relative inline-block py-4 w-1/2 sm:w-[150px]">
+                    <Image
+                      src="/images/brush.webp"
+                      alt="brush"
+                      width={500}
+                      height={500}
+                      className="absolute inset-0 w-full h-full transform scale-x-[-1]"
+                    />
+                    <span className="lg:text-[15px] text-[13px] relative block w-full text-center text-white font-medium">
+                      Solo : {item.price || "—"}
+                    </span>
+                  </div>
+
+                  <div className="relative inline-block py-4 w-1/2 sm:w-[150px]">
+                    <Image
+                      src="/images/brush.webp"
+                      alt="brush"
+                      width={500}
+                      height={500}
+                      className="absolute inset-0 w-full h-full"
+                    />
+                    <span className="lg:text-[15px] text-[13px] relative block w-full text-center text-white font-medium">
+                      Duo : {item.price_duo || "—"}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
-      )}
-    </div>
-  </div>
-</div>
-
+      </div>
     );
   })}
 </div>
